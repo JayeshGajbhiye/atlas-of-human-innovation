@@ -100,8 +100,30 @@ export const CANONICAL_WIKI_MAPPING: Record<string, { title: string; fallbackTit
   'vulcanized-rubber': { title: 'Vulcanization', fallbackTitle: 'Natural_rubber' },
   
   // Batch 3
-  'compass': { title: 'Compass', fallbackTitle: 'Magnetic_compass' },
-  'electric-battery': { title: 'Voltaic_pile', fallbackTitle: 'Alessandro_Volta' }
+  'electron-microscope': { title: 'Electron_microscope', fallbackTitle: 'Transmission_electron_microscopy' },
+  'air-conditioning': { title: 'Air_conditioning', fallbackTitle: 'Willis_Carrier' },
+  'electric-streetcar': { title: 'Tram', fallbackTitle: 'Frank_J._Sprague' },
+
+  // Batch 4
+  'glassmaking': { title: 'Glass', fallbackTitle: 'History_of_glass' },
+  'currency-coins': { title: 'Coin', fallbackTitle: 'History_of_coins' },
+  'gunpowder': { title: 'Gunpowder', fallbackTitle: 'History_of_gunpowder' },
+  'periodic-table': { title: 'Periodic_table', fallbackTitle: 'Dmitri_Mendeleev' },
+  'laser': { title: 'Laser', fallbackTitle: 'Theodore_Maiman' },
+
+  // Batch 5
+  'mechanical-refrigeration': { title: 'Refrigerator', fallbackTitle: 'Vapor-compression_refrigeration' },
+  'mri-scanner': { title: 'Magnetic_resonance_imaging', fallbackTitle: 'Raymond_Damadian' },
+  'pcr-dna-amplification': { title: 'Polymerase_chain_reaction', fallbackTitle: 'Kary_Mullis' },
+  'blockchain-cryptocurrency': { title: 'Bitcoin', fallbackTitle: 'Blockchain' },
+  'wind-turbine-electricity': { title: 'Wind_turbine', fallbackTitle: 'Wind_power' },
+
+  // Batch 6
+  'sewage-sanitation-systems': { title: 'Sewerage', fallbackTitle: 'Joseph_Bazalgette' },
+  'telescope-space-hubble': { title: 'Hubble_Space_Telescope', fallbackTitle: 'Space_telescope' },
+  'oral-contraceptive-pill': { title: 'Combined_oral_contraceptive_pill', fallbackTitle: 'Birth_control' },
+  'photography-camera': { title: 'Camera', fallbackTitle: 'History_of_photography' },
+  'airplane-jet-engine': { title: 'Jet_engine', fallbackTitle: 'Turbojet' }
 };
 
 import resolvedImagesData from '../data/resolvedImages.json';

@@ -1,6 +1,9 @@
 import { Relationship } from '../types/innovation';
 import { batch2Relationships } from './innovations-batch2';
 import { batch3Relationships } from './innovations-batch3';
+import { batch4Relationships } from './innovations-batch4';
+import { batch5Relationships } from './innovations-batch5';
+import { batch6Relationships } from './innovations-batch6';
 
 const baseRelationships: Relationship[] = [
   // ==========================================================
@@ -648,7 +651,7 @@ export const batch1Relationships: Relationship[] = [
   }
 ];
 
-export const RELATIONSHIPS: Relationship[] = [...baseRelationships, ...batch1Relationships, ...batch2Relationships, ...batch3Relationships];
+export const RELATIONSHIPS: Relationship[] = [...baseRelationships, ...batch1Relationships, ...batch2Relationships, ...batch3Relationships, ...batch4Relationships, ...batch5Relationships, ...batch6Relationships];
 
 export function getRelationshipsForNode(nodeId: string): Relationship[] {
   return RELATIONSHIPS.filter(r => r.source === nodeId || r.target === nodeId);

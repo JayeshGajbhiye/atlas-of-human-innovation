@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import { useAtlas } from '../../context/AtlasContext';
 import { DOMAINS } from '../../data/domains';
-import { Innovation } from '../../types/innovation';
 
 export const InnovationTimelineView: React.FC = () => {
   const { filteredInnovations, selectInnovation, selectedInnovationId } = useAtlas();
@@ -122,7 +121,7 @@ export const InnovationTimelineView: React.FC = () => {
     } else if (mode === 'density') {
       // Histogram approach
       const histogram = d3.bin()
-        .value(d => (d as Innovation).date_numeric)
+        .value(d => (d as any).date_numeric)
         .domain(xScale.domain() as [number, number])
         .thresholds(xScale.ticks(40));
 

@@ -11,7 +11,8 @@ import {
   Scale, 
   Bookmark, 
   Layers, 
-  Boxes
+  Boxes,
+  LineChart
 } from 'lucide-react';
 
 interface NavItem {
@@ -36,6 +37,7 @@ export const LeftNavigation: React.FC = () => {
   const exploreNav: NavItem[] = [
     { id: 'graph', label: 'Knowledge Graph', icon: Network, badge: 'Primary' },
     { id: 'timeline', label: 'Timeline River', icon: Clock },
+    { id: 'innovation-timeline', label: 'Innovation Graph', icon: LineChart, badge: 'New' },
     { id: 'map', label: 'World Map', icon: Globe2, badge: 'OSM' },
     { id: '3d', label: '3D Universe', icon: Boxes, badge: 'WebGL' },
     { id: 'paths', label: 'Innovation Paths', icon: GitFork },
@@ -56,7 +58,7 @@ export const LeftNavigation: React.FC = () => {
   ];
 
   return (
-    <aside className="w-60 bg-[#090b10] border-r border-white/10 flex flex-col justify-between shrink-0 select-none overflow-y-auto">
+    <aside className="w-60 bg-[#030406] border-r border-white/5 flex flex-col justify-between shrink-0 select-none overflow-y-auto">
       <div className="p-3 space-y-5">
         {/* Section 1: Explore Modes */}
         <div>

@@ -3,10 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-dark: #030406;
+    --bg-panel: #0a0b10;
+    --accent-cyan: #00e5ff;
+    --accent-emerald: #00ff9d;
+    --glow-cyan: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     color: #f1f5f9;
-    background-color: #08090d;
+    background-color: var(--bg-dark);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
 

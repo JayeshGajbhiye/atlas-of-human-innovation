@@ -165,7 +165,8 @@ export type ViewMode =
   | 'paths'
   | 'compare'
   | 'civilization'
-  | '3d';
+  | '3d'
+  | 'innovation-timeline';
 
 export interface FilterState {
   searchQuery: string;

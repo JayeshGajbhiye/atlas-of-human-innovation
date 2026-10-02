@@ -277,87 +277,88 @@ export const InspectorPanel: React.FC = () => {
         </div>
 
         {/* Tab 1: Dossier */}
+        {/* Tab 1: Dossier */}
         {activeTab === 'dossier' && (
-          <div className="p-4 space-y-5 text-slate-300 text-xs leading-relaxed">
+          <div className="p-4 space-y-6">
             {/* Overview */}
             <div>
-              <h3 className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-semibold mb-1.5 flex items-center space-x-1.5">
+              <h3 className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest font-semibold mb-2 flex items-center space-x-1.5 opacity-80">
                 <Info className="w-3.5 h-3.5" />
-                <span>Overview</span>
+                <span>Executive Summary</span>
               </h3>
-              <p className="bg-white/5 p-3 rounded border border-white/5 text-slate-200">
+              <p className="font-sans text-sm leading-relaxed text-slate-200">
                 {selectedInnovation.overview}
               </p>
             </div>
 
             {/* Why It Matters */}
             <div>
-              <h3 className="text-[11px] font-mono text-amber-400 uppercase tracking-wider font-semibold mb-1.5 flex items-center space-x-1.5">
+              <h3 className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest font-semibold mb-2 flex items-center space-x-1.5 opacity-80">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Why It Matters</span>
+                <span>Global Impact Vector</span>
               </h3>
-              <p>{selectedInnovation.why_it_matters}</p>
+              <p className="font-sans text-[13px] leading-relaxed text-slate-300 border-l border-emerald-500/30 pl-3 py-0.5">{selectedInnovation.why_it_matters}</p>
             </div>
 
             {/* Problem Solved */}
             <div>
-              <h3 className="text-[11px] font-mono text-rose-400 uppercase tracking-wider font-semibold mb-1.5 flex items-center space-x-1.5">
+              <h3 className="text-[10px] font-mono text-amber-400 uppercase tracking-widest font-semibold mb-2 flex items-center space-x-1.5 opacity-80">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Problem It Solved</span>
+                <span>Constraint Resolution</span>
               </h3>
-              <p>{selectedInnovation.problem_solved}</p>
+              <p className="font-sans text-[13px] leading-relaxed text-slate-300 border-l border-amber-500/30 pl-3 py-0.5">{selectedInnovation.problem_solved}</p>
             </div>
 
             {/* AI Context Brief */}
-            <div className="bg-cyan-950/30 border border-cyan-500/30 rounded-lg p-3 space-y-2">
-              <div className="flex items-center space-x-1.5 text-cyan-400 font-mono text-[11px] font-semibold">
+            <div className="bg-cyan-950/20 border border-cyan-500/20 rounded p-3 space-y-2 mt-4">
+              <div className="flex items-center space-x-1.5 text-cyan-400 font-mono text-[10px] tracking-widest font-semibold">
                 <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                <span>AI Graph Context Brief</span>
+                <span>AI Analytics</span>
               </div>
-              <p className="text-[11px] text-slate-300">{aiBrief.enablingAncestry}</p>
-              <p className="text-[11px] text-slate-300">{aiBrief.cascadingImpact}</p>
+              <p className="font-sans text-[12px] text-slate-300 leading-relaxed">{aiBrief.enablingAncestry}</p>
+              <p className="font-sans text-[12px] text-slate-300 leading-relaxed">{aiBrief.cascadingImpact}</p>
             </div>
 
             {/* Modern Legacy */}
             <div>
-              <h3 className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold mb-1.5 flex items-center space-x-1.5">
+              <h3 className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest font-semibold mb-2 flex items-center space-x-1.5 opacity-80">
                 <Layers className="w-3.5 h-3.5" />
-                <span>Modern Legacy</span>
+                <span>Contemporary Manifestation</span>
               </h3>
-              <p>{selectedInnovation.modern_legacy}</p>
+              <p className="font-sans text-[13px] leading-relaxed text-slate-300 border-l border-cyan-500/30 pl-3 py-0.5">{selectedInnovation.modern_legacy}</p>
             </div>
           </div>
         )}
 
         {/* Tab 2: Mechanism & Historical Stages */}
         {activeTab === 'mechanism' && (
-          <div className="p-4 space-y-5 text-slate-300 text-xs leading-relaxed">
+          <div className="p-4 space-y-6">
             {/* How It Works */}
             <div>
-              <h3 className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-semibold mb-1.5 flex items-center space-x-1.5">
+              <h3 className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest font-semibold mb-2 flex items-center space-x-1.5 opacity-80">
                 <Cpu className="w-3.5 h-3.5" />
-                <span>Underlying Mechanism</span>
+                <span>Platform / Underlying Mechanism</span>
               </h3>
-              <p className="bg-white/5 p-3 rounded border border-white/5 font-mono text-[11px] text-slate-200">
+              <p className="font-mono text-[11px] leading-relaxed bg-white/5 p-3 rounded-sm border border-white/10 text-slate-200">
                 {selectedInnovation.mechanism}
               </p>
             </div>
 
             {/* Historical Development Timeline */}
             <div>
-              <h3 className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold mb-3 flex items-center space-x-1.5">
+              <h3 className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold mb-3 flex items-center space-x-1.5 opacity-80">
                 <Clock className="w-3.5 h-3.5" />
-                <span>Historical Evolution Stages</span>
+                <span>Chronological Telemetry</span>
               </h3>
               <div className="relative border-l border-white/10 ml-2 space-y-4 pl-4">
                 {selectedInnovation.historical_development.map((stage, idx) => (
                   <div key={idx} className="relative group">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 absolute -left-[21px] top-1 border-2 border-[#0c0e15]"></span>
-                    <div className="flex items-baseline justify-between">
-                      <h4 className="font-semibold text-slate-200 text-xs">{stage.stage}</h4>
-                      <span className="font-mono text-[10px] text-slate-500">{stage.period}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 absolute -left-[20px] top-1.5 border-2 border-[#030406] shadow-[0_0_8px_rgba(0,229,255,0.5)]"></span>
+                    <div className="flex items-baseline justify-between mb-0.5">
+                      <h4 className="font-mono font-medium text-slate-100 text-[11px] tracking-wide">{stage.stage}</h4>
+                      <span className="font-mono text-[10px] text-cyan-500/70">{stage.period}</span>
                     </div>
-                    <p className="text-slate-400 text-[11px] mt-0.5">{stage.description}</p>
+                    <p className="font-sans text-slate-400 text-xs leading-relaxed">{stage.description}</p>
                   </div>
                 ))}
               </div>

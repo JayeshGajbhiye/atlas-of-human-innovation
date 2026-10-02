@@ -15,6 +15,7 @@ import { PathFinderView } from './components/views/PathFinderView';
 import { ComparisonView } from './components/views/ComparisonView';
 import { CivilizationView } from './components/views/CivilizationView';
 import { ThreeDUniverseView } from './components/views/ThreeDUniverseView';
+import { InnovationTimelineView } from './components/views/InnovationTimelineView';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 export const App: React.FC = () => {
@@ -35,6 +36,7 @@ export const App: React.FC = () => {
           <ErrorBoundary fallbackTitle="Atlas Visualization Engine">
             {viewMode === 'graph' && <KnowledgeGraphView />}
             {viewMode === 'timeline' && <TimelineView />}
+            {viewMode === 'innovation-timeline' && <InnovationTimelineView />}
             {viewMode === 'map' && <WorldMapView />}
             {viewMode === 'paths' && <PathFinderView />}
             {viewMode === 'compare' && <ComparisonView />}

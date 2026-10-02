@@ -83,7 +83,25 @@ export const CANONICAL_WIKI_MAPPING: Record<string, { title: string; fallbackTit
   'space-station-iss': { title: 'International_Space_Station', fallbackTitle: 'Space_station' },
   'reusable-orbital-rocketry': { title: 'Falcon_9', fallbackTitle: 'VTVL' },
   'genetic-engineering-crispr': { title: 'CRISPR', fallbackTitle: 'CRISPR_gene_editing' },
-  'quantum-computing': { title: 'Quantum_computing', fallbackTitle: 'Qubit' }
+  'quantum-computing': { title: 'Quantum_computing', fallbackTitle: 'Qubit' },
+  
+  // Batch 1
+  'bow-and-arrow': { title: 'Bow_and_arrow', fallbackTitle: 'Archery' },
+  'rope-cordage': { title: 'Rope', fallbackTitle: 'Twine' },
+  'abacus': { title: 'Abacus', fallbackTitle: 'Suanpan' },
+  'mechanical-gears': { title: 'Gear', fallbackTitle: 'Antikythera_mechanism' },
+  'library-of-alexandria': { title: 'Library_of_Alexandria', fallbackTitle: 'Mouseion' },
+  
+  // Batch 2
+  'vaccination': { title: 'Vaccine', fallbackTitle: 'Edward_Jenner' },
+  'anesthesia': { title: 'Anesthesia', fallbackTitle: 'General_anaesthesia' },
+  'x-ray-imaging': { title: 'X-ray', fallbackTitle: 'Radiography' },
+  'atomic-theory': { title: 'Atomic_theory', fallbackTitle: 'John_Dalton' },
+  'vulcanized-rubber': { title: 'Vulcanization', fallbackTitle: 'Natural_rubber' },
+  
+  // Batch 3
+  'compass': { title: 'Compass', fallbackTitle: 'Magnetic_compass' },
+  'electric-battery': { title: 'Voltaic_pile', fallbackTitle: 'Alessandro_Volta' }
 };
 
 import resolvedImagesData from '../data/resolvedImages.json';

@@ -70,20 +70,19 @@ export const TopBar: React.FC = () => {
     : [];
 
   return (
-    <header className="h-14 bg-[#0a0b10] border-b border-white/10 px-4 flex items-center justify-between z-30 select-none">
+    <header className="h-14 bg-[#030406] border-b border-white/5 px-4 flex items-center justify-between z-30 select-none">
       {/* Left: Brand & Tagline */}
       <div className="flex items-center space-x-3 min-w-[260px]">
         <div className="flex items-center space-x-2">
-          <div className="relative flex items-center justify-center w-8 h-8 rounded border border-cyan-500/40 bg-cyan-950/20 text-cyan-400 font-mono font-bold text-xs shadow-glow-cyan">
-            <span className="animate-pulse w-1.5 h-1.5 rounded-full bg-cyan-400 absolute top-1 right-1"></span>
-            AHI
+          <div className="relative flex items-center justify-center w-8 h-8 rounded-sm border border-cyan-500/20 bg-cyan-950/10 overflow-hidden shadow-glow-cyan">
+            <img src="/atlas-human-innovation-logo.png" alt="Atlas of Human Innovation Logo" className="w-full h-full object-cover invert contrast-125 brightness-110" />
           </div>
           <div>
             <div className="flex items-center space-x-1.5">
-              <span className="font-mono font-semibold text-xs tracking-wider text-slate-100 uppercase">Atlas of Human Innovation</span>
-              <span className="px-1.5 py-0.2 text-[9px] font-mono rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300">v1.0</span>
+              <span className="font-mono font-medium text-xs tracking-[0.2em] text-slate-100 uppercase">Atlas of Human Innovation</span>
+              <span className="px-1 py-0.5 text-[8px] font-mono rounded bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 leading-none">v1.1</span>
             </div>
-            <p className="text-[11px] text-slate-400 tracking-tight">Explore the architecture of human progress</p>
+            <p className="text-[10px] text-slate-400 tracking-wider font-mono opacity-60">TELEMETRY & EXPLORATION MATRIX</p>
           </div>
         </div>
       </div>

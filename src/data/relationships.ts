@@ -1,6 +1,8 @@
 import { Relationship } from '../types/innovation';
+import { batch2Relationships } from './innovations-batch2';
+import { batch3Relationships } from './innovations-batch3';
 
-export const RELATIONSHIPS: Relationship[] = [
+const baseRelationships: Relationship[] = [
   // ==========================================================
   // NAVIGATION & GEOSPATIAL CHAIN (User Highlighted Path)
   // ==========================================================
@@ -607,6 +609,46 @@ export const RELATIONSHIPS: Relationship[] = [
     evidence: 'Without relativistic clock adjustments (+45.9 microsec/day general relativity gravity effect minus 7.2 microsec/day special relativity orbital speed effect = +38.6 microsec/day), GPS position would drift by over 11 kilometers every single day.'
   }
 ];
+
+export const batch1Relationships: Relationship[] = [
+  {
+    id: 'rel-stone-bow',
+    source: 'stone-tools',
+    target: 'bow-and-arrow',
+    relationship_type: 'ENABLED',
+    evidence: 'Microlithic stone points were necessary for effective arrowheads.'
+  },
+  {
+    id: 'rel-stone-cordage',
+    source: 'stone-tools',
+    target: 'rope-cordage',
+    relationship_type: 'ENABLED',
+    evidence: 'Stone blades were needed to harvest and scrape bast fibers for twisting.'
+  },
+  {
+    id: 'rel-math60-abacus',
+    source: 'mathematics-base60',
+    target: 'abacus',
+    relationship_type: 'ENABLED',
+    evidence: 'Positional number concepts were physically realized on counting boards.'
+  },
+  {
+    id: 'rel-wheel-gears',
+    source: 'the-wheel',
+    target: 'mechanical-gears',
+    relationship_type: 'EXTENDED',
+    evidence: 'Gears are directly evolved from the wheel, adding teeth to transmit torque.'
+  },
+  {
+    id: 'rel-writing-alexandria',
+    source: 'writing-cuneiform',
+    target: 'library-of-alexandria',
+    relationship_type: 'DEPENDS_ON',
+    evidence: 'A universal library requires written text and structured cataloging systems.'
+  }
+];
+
+export const RELATIONSHIPS: Relationship[] = [...baseRelationships, ...batch1Relationships, ...batch2Relationships, ...batch3Relationships];
 
 export function getRelationshipsForNode(nodeId: string): Relationship[] {
   return RELATIONSHIPS.filter(r => r.source === nodeId || r.target === nodeId);

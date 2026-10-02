@@ -1,6 +1,9 @@
 import { Innovation } from '../types/innovation';
+import { batch1Innovations } from './innovations-batch1';
+import { batch2Innovations } from './innovations-batch2';
+import { batch3Innovations } from './innovations-batch3';
 
-export const INNOVATIONS: Innovation[] = [
+const baseInnovations: Innovation[] = [
   // ==========================================
   // 1. FOUNDATIONAL & PREHISTORY
   // ==========================================
@@ -3327,6 +3330,8 @@ export const INNOVATIONS: Innovation[] = [
     confidence_note: 'Physical superconducting quantum processors operating in cloud facilities at IBM, Google, and Rigetti.'
   }
 ];
+
+export const INNOVATIONS: Innovation[] = [...baseInnovations, ...batch1Innovations, ...batch2Innovations, ...batch3Innovations];
 
 export function getInnovationById(id: string): Innovation | undefined {
   return INNOVATIONS.find(item => item.id === id);

@@ -50,10 +50,10 @@ export const LeftNavigation: React.FC = () => {
 
   // Quick jump featured
   const featuredInnovations = [
-    { id: 'navigation-maritime', name: 'Maritime Navigation' },
-    { id: 'steam-engine', name: 'Steam Engine' },
-    { id: 'printing-press', name: 'Printing Press' },
-    { id: 'satellites-gps', name: 'GPS Constellation' },
+    { id: 'transatlantic-telegraph', name: 'Transatlantic Telegraph' },
+    { id: 'graphical-user-interface', name: 'Graphical User Interface' },
+    { id: 'haber-bosch-process', name: 'Haber-Bosch Process' },
+    { id: 'mass-production-assembly', name: 'Moving Assembly Line' },
     { id: 'transformer-attention', name: 'Transformers & LLMs' },
   ];
 

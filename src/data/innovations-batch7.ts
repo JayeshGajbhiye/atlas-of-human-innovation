@@ -47,12 +47,6 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'primary_archive'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Pantheon_dome.jpg',
-      caption: 'The dome of the Pantheon, the world\'s largest unreinforced concrete dome, standing intact for nearly 2,000 years.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Extensively documented by Vitruvius and Pliny the Elder.'
   },
@@ -107,12 +101,6 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'primary_archive'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Bessemer_converter.jpg',
-      caption: 'A historic Bessemer converter used to blast air through molten iron.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Bessemer\'s patent (No. 2321) was filed in 1856.'
   },
@@ -162,12 +150,6 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'institutional'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Elisha_Otis_Crystal_Palace_1853.jpg',
-      caption: 'Elisha Otis demonstrates his safety elevator by having the hoisting rope cut while he stands on the platform (1854).',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'The 1854 Crystal Palace demonstration is a famously documented public event.'
   },
@@ -217,12 +199,6 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'institutional'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Bakelite_telephone.jpg',
-      caption: 'A classic mid-century rotary telephone, mass-produced using durable, moldable Bakelite.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Baekeland filed the "Heat and Pressure" patent in July 1907.'
   }
@@ -244,3 +220,4 @@ export const batch7Relationships: Relationship[] = [
     evidence: 'The mass adoption of electrical grids and early electronics drove the desperate market demand for Bakelite insulators.'
   }
 ];
+

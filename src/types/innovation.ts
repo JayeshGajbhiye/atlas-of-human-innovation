@@ -111,7 +111,7 @@ export interface Innovation {
   
   modern_legacy: string;
   sources: SourceCitation[];
-  media: MediaAsset;
+  media?: MediaAsset;
   
   confidence: ConfidenceLevel;
   confidence_note: string;

@@ -57,12 +57,6 @@ export const batch8Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Map_of_transatlantic_telegraph_cables.png',
-      caption: 'A map of early transatlantic submarine cables connecting North America to Europe.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'The first official message was sent on August 16, 1858.'
   },
@@ -122,12 +116,6 @@ export const batch8Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Xerox_Alto_GUI.jpg',
-      caption: 'The Xerox Alto, demonstrating the first use of overlapping windows and bitmapped graphics.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'The Alto became operational on March 1, 1973.'
   }
@@ -156,3 +144,4 @@ export const batch8Relationships: Relationship[] = [
     evidence: 'Large Language Models could not exist without the immense, digitized corpus of human text provided by the World Wide Web for training data.'
   }
 ];
+

@@ -47,12 +47,6 @@ export const batch9Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Crop_rotation_diagram.svg',
-      caption: 'A diagram showing the flow of nutrients in a four-field crop rotation system.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'While its origins are complex (tracing to Flanders), its 18th-century English codification is undisputed.'
   },
@@ -107,12 +101,6 @@ export const batch9Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Haber-Bosch-En.svg',
-      caption: 'A flow diagram of the industrial Haber-Bosch process.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Haber demonstrated the process to BASF on July 2, 1909.'
   },
@@ -162,12 +150,6 @@ export const batch9Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Pasteur_swan_neck_flask.jpg',
-      caption: 'Pasteur\'s original swan-neck flasks, which allowed air in but trapped dust and microbes, disproving spontaneous generation.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Pasteur applied for the patent for his wine-heating method in 1865.'
   }
@@ -196,3 +178,4 @@ export const batch9Relationships: Relationship[] = [
     evidence: 'Pasteur\'s experiments with spoilage provided the direct physical proof needed to formalize the Germ Theory of Disease.'
   }
 ];
+

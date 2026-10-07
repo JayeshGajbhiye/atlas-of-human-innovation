@@ -47,12 +47,6 @@ export const batch10Innovations: Innovation[] = [
         sourceType: 'primary_archive'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Pacioli.jpg',
-      caption: 'Portrait of Luca Pacioli, who formalized double-entry bookkeeping, shown with mathematical tools.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Pacioli\'s textbook was published in Venice in 1494.'
   },
@@ -102,12 +96,6 @@ export const batch10Innovations: Innovation[] = [
         sourceType: 'institutional'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/VOC_share_1606.jpg',
-      caption: 'The oldest known share of the Dutch East India Company (VOC), dated 1606.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'The VOC charter was officially granted on March 20, 1602.'
   },
@@ -162,12 +150,6 @@ export const batch10Innovations: Innovation[] = [
         sourceType: 'primary_archive'
       }
     ],
-    media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Ford_assembly_line_-_1913.jpg',
-      caption: 'Workers on the magneto assembly line at the Ford Highland Park plant in 1913.',
-      attribution: 'Public Domain',
-      license: 'Public Domain'
-    },
     confidence: 'VERIFIED',
     confidence_note: 'Ford\'s line officially began moving on December 1, 1913.'
   }
@@ -189,3 +171,4 @@ export const batch10Relationships: Relationship[] = [
     evidence: 'Building massive industrial assembly factories required the pooled capital structures pioneered by public corporations.'
   }
 ];
+

@@ -11,7 +11,8 @@ import {
   Play, 
   Pause, 
   Tag, 
-  Layers
+  Layers,
+  Focus
 } from 'lucide-react';
 
 interface SimulationNode extends d3.SimulationNodeDatum, Innovation {
@@ -77,6 +78,7 @@ export const KnowledgeGraphView: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [showEdgeLabels, setShowEdgeLabels] = useState(true);
   const [showLegend, setShowLegend] = useState(true);
+  const [focusLineageMode, setFocusLineageMode] = useState(false);
 
   // Degrees metric cache
   const degreesMap = useMemo(() => calculateNodeDegrees(), []);
@@ -91,6 +93,12 @@ export const KnowledgeGraphView: React.FC = () => {
     selectedIdRef.current = selectedInnovationId;
     neighborhoodRef.current = neighborhood;
   }, [selectedInnovationId, neighborhood]);
+
+  const focusLineageRef = useRef<boolean>(focusLineageMode);
+  useEffect(() => {
+    focusLineageRef.current = focusLineageMode;
+    render();
+  }, [focusLineageMode]);
 
   useEffect(() => {
     hoveredNodeRef.current = hoveredNode;
@@ -122,6 +130,7 @@ export const KnowledgeGraphView: React.FC = () => {
     const currentNeighborhood = neighborhoodRef.current;
     const currentHovered = hoveredNodeRef.current;
     const currentEdgeLabels = showEdgeLabelsRef.current;
+    const currentFocusLineage = focusLineageRef.current;
 
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -169,15 +178,19 @@ export const KnowledgeGraphView: React.FC = () => {
       let isDimmed = false;
 
       // Selection-specific highlighting ONLY applies when a valid node is actively selected
-      if (selectedId) {
-        const isConnectedToSelected = 
-          source.id === selectedId || target.id === selectedId;
-        if (isConnectedToSelected) {
+      if (selectedId && currentNeighborhood) {
+        // Strict edge checking: Only highlight edges directly connected to the selected node
+        const isDirectConnection = source.id === selectedId || target.id === selectedId;
+        
+        if (isDirectConnection) {
           isHighlighted = true;
         } else {
           isDimmed = true;
         }
       }
+
+      // If Focus Lineage Mode is active, do not render dimmed edges at all
+      if (currentFocusLineage && isDimmed) return;
 
       ctx.save();
       ctx.beginPath();
@@ -264,6 +277,9 @@ export const KnowledgeGraphView: React.FC = () => {
           isDimmed = true;
         }
       }
+
+      // If Focus Lineage Mode is active, do not render dimmed nodes at all
+      if (currentFocusLineage && isDimmed) return;
 
       ctx.save();
       ctx.globalAlpha = isDimmed ? 0.18 : 1.0;
@@ -794,6 +810,15 @@ export const KnowledgeGraphView: React.FC = () => {
           title="Toggle domain color legend"
         >
           <Layers className="w-4 h-4" />
+        </button>
+        <button
+          onClick={() => setFocusLineageMode(!focusLineageMode)}
+          className={`p-2 rounded transition-all ${
+            focusLineageMode ? 'text-amber-400 bg-amber-950/40' : 'text-slate-400 hover:text-slate-100 hover:bg-white/10'
+          }`}
+          title="Focus Lineage Mode: Hide unrelated nodes when selecting an innovation"
+        >
+          <Focus className="w-4 h-4" />
         </button>
       </div>
 

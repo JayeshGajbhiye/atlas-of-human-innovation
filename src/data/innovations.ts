@@ -5,6 +5,10 @@ import { batch3Innovations } from './innovations-batch3';
 import { batch4Innovations } from './innovations-batch4';
 import { batch5Innovations } from './innovations-batch5';
 import { batch6Innovations } from './innovations-batch6';
+import { batch7Innovations } from './innovations-batch7';
+import { batch8Innovations } from './innovations-batch8';
+import { batch9Innovations } from './innovations-batch9';
+import { batch10Innovations } from './innovations-batch10';
 
 const baseInnovations: Innovation[] = [
   // ==========================================
@@ -3334,7 +3338,19 @@ const baseInnovations: Innovation[] = [
   }
 ];
 
-export const INNOVATIONS: Innovation[] = [...baseInnovations, ...batch1Innovations, ...batch2Innovations, ...batch3Innovations, ...batch4Innovations, ...batch5Innovations, ...batch6Innovations];
+export const INNOVATIONS: Innovation[] = [
+  ...baseInnovations, 
+  ...batch1Innovations, 
+  ...batch2Innovations, 
+  ...batch3Innovations, 
+  ...batch4Innovations, 
+  ...batch5Innovations, 
+  ...batch6Innovations,
+  ...batch7Innovations,
+  ...batch8Innovations,
+  ...batch9Innovations,
+  ...batch10Innovations
+];
 
 export function getInnovationById(id: string): Innovation | undefined {
   return INNOVATIONS.find(item => item.id === id);

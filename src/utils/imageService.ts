@@ -123,7 +123,27 @@ export const CANONICAL_WIKI_MAPPING: Record<string, { title: string; fallbackTit
   'telescope-space-hubble': { title: 'Hubble_Space_Telescope', fallbackTitle: 'Space_telescope' },
   'oral-contraceptive-pill': { title: 'Combined_oral_contraceptive_pill', fallbackTitle: 'Birth_control' },
   'photography-camera': { title: 'Camera', fallbackTitle: 'History_of_photography' },
-  'airplane-jet-engine': { title: 'Jet_engine', fallbackTitle: 'Turbojet' }
+  'airplane-jet-engine': { title: 'Jet_engine', fallbackTitle: 'Turbojet' },
+
+  // Batch 7
+  'roman-concrete': { title: 'Roman_concrete', fallbackTitle: 'Concrete' },
+  'bessemer-steel': { title: 'Bessemer_process', fallbackTitle: 'Steel' },
+  'elevator-safety': { title: 'Elevator', fallbackTitle: 'Elisha_Otis' },
+  'synthetic-plastic-bakelite': { title: 'Bakelite', fallbackTitle: 'Leo_Baekeland' },
+
+  // Batch 8
+  'transatlantic-telegraph': { title: 'Transatlantic_telegraph_cable', fallbackTitle: 'Cyrus_West_Field' },
+  'graphical-user-interface': { title: 'Graphical_user_interface', fallbackTitle: 'Xerox_Alto' },
+
+  // Batch 9
+  'crop-rotation': { title: 'Crop_rotation', fallbackTitle: 'British_Agricultural_Revolution' },
+  'haber-bosch-process': { title: 'Haber_process', fallbackTitle: 'Fritz_Haber' },
+  'pasteurization': { title: 'Pasteurization', fallbackTitle: 'Louis_Pasteur' },
+
+  // Batch 10
+  'double-entry-bookkeeping': { title: 'Double-entry_bookkeeping', fallbackTitle: 'Luca_Pacioli' },
+  'joint-stock-company': { title: 'Joint-stock_company', fallbackTitle: 'Dutch_East_India_Company' },
+  'mass-production-assembly': { title: 'Assembly_line', fallbackTitle: 'Mass_production' }
 };
 
 import resolvedImagesData from '../data/resolvedImages.json';

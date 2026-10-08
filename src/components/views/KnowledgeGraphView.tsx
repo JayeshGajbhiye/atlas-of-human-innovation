@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { useAtlas } from '../../context/AtlasContext';
 import { DOMAINS, DOMAIN_LIST } from '../../data/domains';
-import { ERAS, getEraById } from '../../data/eras';
-import { Innovation, Relationship, EraId } from '../../types/innovation';
+import { Innovation, Relationship, DomainCategory } from '../../types/innovation';
 import { getNodeNeighborhood, calculateNodeDegrees } from '../../utils/graphAnalytics';
+import { VERIFIED_COMMONS_FALLBACKS } from '../../utils/imageService';
 import { 
   ZoomIn, 
   ZoomOut, 
@@ -16,7 +16,8 @@ import {
   Layers,
   Focus,
   RotateCcw,
-  Clock
+  Network,
+  X
 } from 'lucide-react';
 
 interface SimulationNode extends d3.SimulationNodeDatum, Innovation {
@@ -28,8 +29,6 @@ interface SimulationNode extends d3.SimulationNodeDatum, Innovation {
   fy?: number | null;
   radius: number;
   totalDegree: number;
-  eraIndex: number;
-  targetEraX: number;
 }
 
 interface SimulationLink extends d3.SimulationLinkDatum<SimulationNode> {
@@ -38,14 +37,7 @@ interface SimulationLink extends d3.SimulationLinkDatum<SimulationNode> {
   relationship: Relationship;
 }
 
-export interface KnowledgeGraphViewProps {
-  defaultLayout?: 'timeline' | 'network';
-}
-
-const ERA_COLUMN_WIDTH = 340;
-const GRAPH_PADDING_X = 120;
-
-export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultLayout = 'timeline' }) => {
+export const KnowledgeGraphView: React.FC = () => {
   const {
     filteredInnovations,
     allRelationships,
@@ -72,7 +64,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
   const showEdgeLabelsRef = useRef<boolean>(true);
   const showLegendRef = useRef<boolean>(true);
   const focusLineageRef = useRef<boolean>(false);
-  const layoutModeRef = useRef<'timeline' | 'network'>(defaultLayout);
 
   // Interaction tracking
   const pointerStartRef = useRef<{
@@ -92,7 +83,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
   const lastClickRef = useRef<{ id: string; time: number } | null>(null);
 
   // React Component States
-  const [layoutMode, setLayoutMode] = useState<'timeline' | 'network'>(defaultLayout);
   const [hoveredNode, setHoveredNode] = useState<SimulationNode | null>(null);
   const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -100,7 +90,7 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
   const [showLegend, setShowLegend] = useState(true);
   const [focusLineageMode, setFocusLineageMode] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [activeEraFilter, setActiveEraFilter] = useState<EraId | 'ALL'>('ALL');
+  const [domainFilter, setDomainFilter] = useState<DomainCategory | 'ALL'>('ALL');
 
   // Degrees metric cache
   const degreesMap = useMemo(() => calculateNodeDegrees(), []);
@@ -120,11 +110,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
     focusLineageRef.current = focusLineageMode;
     render();
   }, [focusLineageMode]);
-
-  useEffect(() => {
-    layoutModeRef.current = layoutMode;
-    rebuildSimulation();
-  }, [layoutMode]);
 
   useEffect(() => {
     hoveredNodeRef.current = hoveredNode;
@@ -163,22 +148,12 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
         await document.exitFullscreen();
       }
     } catch {
-      // Fallback state toggle
       setIsFullscreen(prev => !prev);
       setTimeout(() => handleFitView(), 100);
     }
   }, []);
 
-  // Compute era target coordinates for layout
-  const eraIndexMap = useMemo(() => {
-    const map = new Map<string, number>();
-    ERAS.forEach((era, idx) => {
-      map.set(era.id, idx);
-    });
-    return map;
-  }, []);
-
-  // Main canvas render routine - completely decoupled from state dependencies to prevent stale closures
+  // Main canvas render routine - clean, robust, zero zoom-out text explosions
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -190,7 +165,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
     const transform = transformRef.current;
     const currentNodes = nodesRef.current;
     const currentLinks = linksRef.current;
-    const currentLayout = layoutModeRef.current;
 
     // Read current state from refs
     const selectedId = selectedIdRef.current;
@@ -206,46 +180,37 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
     const dpr = window.devicePixelRatio || 1;
     ctx.scale(dpr, dpr);
 
-    // Subtle dark technical background
+    // Deep dark cosmos background
     ctx.fillStyle = '#08090d';
     ctx.fillRect(0, 0, width, height);
+
+    // Subtle background grid pattern
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+    ctx.lineWidth = 1;
+    const gridSize = 60 * transform.k;
+    const startGridX = (transform.x % gridSize);
+    const startGridY = (transform.y % gridSize);
+    for (let x = startGridX; x < width; x += gridSize) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+    for (let y = startGridY; y < height; y += gridSize) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+    ctx.restore();
 
     // Transform coordinate system for graph elements
     ctx.save();
     ctx.translate(transform.x, transform.y);
     ctx.scale(transform.k, transform.k);
 
-    // 0. Draw Chronological Era Columns and Background Lanes in Timeline Mode
-    if (currentLayout === 'timeline') {
-      ERAS.forEach((era, idx) => {
-        const colX = GRAPH_PADDING_X + idx * ERA_COLUMN_WIDTH;
-        
-        // Subtle vertical column lane
-        ctx.fillStyle = idx % 2 === 0 ? 'rgba(255, 255, 255, 0.012)' : 'rgba(255, 255, 255, 0.003)';
-        ctx.fillRect(colX, -500, ERA_COLUMN_WIDTH, height + 1000);
-
-        // Vertical divider
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-        ctx.lineWidth = 1 / transform.k;
-        ctx.beginPath();
-        ctx.moveTo(colX, -500);
-        ctx.lineTo(colX, height + 1000);
-        ctx.stroke();
-
-        // Subtle Era Watermark in the background
-        ctx.save();
-        ctx.font = `600 ${Math.max(16, 22 / transform.k)}px "Inter", sans-serif`;
-        ctx.fillStyle = `${era.color}15`;
-        ctx.textAlign = 'center';
-        ctx.fillText(era.name.toUpperCase(), colX + ERA_COLUMN_WIDTH / 2, -40);
-        ctx.font = `400 ${Math.max(10, 12 / transform.k)}px "JetBrains Mono", monospace`;
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
-        ctx.fillText(era.period, colX + ERA_COLUMN_WIDTH / 2, -18);
-        ctx.restore();
-      });
-    }
-
-    // 1. Draw Links
+    // 1. Draw Links (Relational Edges)
     currentLinks.forEach(link => {
       const source = link.source;
       const target = link.target;
@@ -254,7 +219,7 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
       let isHighlighted = false;
       let isDimmed = false;
 
-      // Selection-specific highlighting ONLY applies when a valid node is actively selected
+      // Selection-specific highlighting
       if (selectedId && currentNeighborhood) {
         const isDirectConnection = source.id === selectedId || target.id === selectedId;
         if (isDirectConnection) {
@@ -269,49 +234,33 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
 
       ctx.save();
       ctx.beginPath();
-
-      if (currentLayout === 'timeline') {
-        // Smooth forward directional Bezier curve
-        const dx = target.x - source.x;
-        const cpOffset = Math.max(40, Math.abs(dx) * 0.45);
-        ctx.moveTo(source.x, source.y);
-        ctx.bezierCurveTo(
-          source.x + cpOffset, source.y,
-          target.x - cpOffset, target.y,
-          target.x, target.y
-        );
-      } else {
-        ctx.moveTo(source.x, source.y);
-        ctx.lineTo(target.x, target.y);
-      }
+      ctx.moveTo(source.x, source.y);
+      ctx.lineTo(target.x, target.y);
 
       if (isHighlighted) {
         ctx.strokeStyle = source.id === selectedId ? '#00f0ff' : '#10b981';
         ctx.lineWidth = 2.4 / transform.k;
         ctx.globalAlpha = 0.95;
       } else if (isDimmed) {
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
         ctx.lineWidth = 0.8 / transform.k;
         ctx.globalAlpha = 0.12;
       } else {
-        // Neutral clean initial state
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
-        ctx.lineWidth = 1.1 / transform.k;
+        // Neutral clean state
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+        ctx.lineWidth = 1.0 / transform.k;
         ctx.globalAlpha = 0.45;
       }
 
       ctx.stroke();
 
-      // Render directional arrowheads
-      if (isHighlighted || (!selectedId && transform.k > 1.1) || (selectedId && transform.k > 1.3)) {
-        const angle = currentLayout === 'timeline' 
-          ? 0 // Forward pointing for timeline bezier
-          : Math.atan2(target.y - source.y, target.x - source.x);
-        
+      // Render directional arrowheads (from source to target)
+      if (isHighlighted || (!selectedId && transform.k > 0.95)) {
+        const angle = Math.atan2(target.y - source.y, target.x - source.x);
         const arrowDist = target.radius + 6;
         const arrowX = target.x - arrowDist * Math.cos(angle);
         const arrowY = target.y - arrowDist * Math.sin(angle);
-        const arrowSize = Math.max(4, 7 / Math.sqrt(transform.k));
+        const arrowSize = Math.max(3.5, 6.5 / Math.sqrt(transform.k));
 
         ctx.beginPath();
         ctx.moveTo(arrowX, arrowY);
@@ -328,11 +277,12 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
         ctx.fill();
       }
 
-      // Render edge relationship label if enabled and highlighted / zoomed
+      // Render edge relationship label when zoomed in or highlighted
       if (currentEdgeLabels && (isHighlighted || (!selectedId && transform.k > 1.8))) {
         const midX = (source.x + target.x) / 2;
         const midY = (source.y + target.y) / 2;
-        ctx.font = `${Math.max(7, 9 / Math.sqrt(transform.k))}px "JetBrains Mono", monospace`;
+        const labelFontSize = Math.max(7, Math.min(10, 8.5 / Math.sqrt(transform.k)));
+        ctx.font = `${labelFontSize}px "JetBrains Mono", monospace`;
         ctx.fillStyle = isHighlighted ? '#a5f3fc' : 'rgba(255, 255, 255, 0.45)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -354,7 +304,7 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
       let isDescendant = false;
       let isDimmed = false;
 
-      // Highlight logic activates ONLY when an active selection exists
+      // Lineage highlight classification
       if (selectedId && currentNeighborhood) {
         if (isSelected) {
           // Focus node
@@ -363,7 +313,7 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
         } else if (currentNeighborhood.directDescendants.includes(node.id)) {
           isDescendant = true;
         } else if (currentNeighborhood.secondDegree.includes(node.id)) {
-          // secondary related
+          // Secondary related
         } else {
           isDimmed = true;
         }
@@ -373,7 +323,7 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
       if (currentFocusLineage && isDimmed) return;
 
       ctx.save();
-      ctx.globalAlpha = isDimmed ? 0.16 : 1.0;
+      ctx.globalAlpha = isDimmed ? 0.15 : 1.0;
 
       // Glow halo around selected or hovered node
       if (isSelected || isHovered) {
@@ -414,33 +364,49 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
       ctx.lineWidth = (isSelected ? 2.5 : 1.2) / transform.k;
       ctx.stroke();
 
-      // Node Label text (always show for focus/predecessors/descendants, or when zoomed in)
+      // Node Label text — Strictly controlled to prevent zoom-out mess!
+      // When zoomed out (transform.k < 0.65), ONLY show labels for selected, neighbors, or hovered.
+      // When medium zoom (0.65 <= k < 1.1), show high-degree hubs.
+      // When zoomed in (k >= 1.1), show all nodes.
       const shouldShowLabel = 
         isSelected || 
         isHovered || 
         isPredecessor || 
         isDescendant || 
-        transform.k > 0.85 || 
-        node.radius > 13;
+        (transform.k >= 1.1) || 
+        (transform.k >= 0.65 && node.totalDegree >= 3);
 
       if (shouldShowLabel && !isDimmed) {
-        ctx.font = `${Math.max(9, Math.min(13, 10 / Math.sqrt(transform.k)))}px "Inter", sans-serif`;
+        const fontSize = Math.max(9, Math.min(13, 11 / Math.sqrt(transform.k)));
+        ctx.font = `${fontSize}px "Inter", sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
 
-        // Dark background plate for readable typography
         const text = node.name;
         const textMetrics = ctx.measureText(text);
         const padding = 3.5;
         const textY = node.y + node.radius + 4;
 
-        ctx.fillStyle = 'rgba(8, 9, 13, 0.9)';
+        // Dark background plate for readable typography
+        ctx.fillStyle = 'rgba(8, 9, 13, 0.92)';
         ctx.fillRect(
           node.x - textMetrics.width / 2 - padding,
           textY - 1,
           textMetrics.width + padding * 2,
-          15
+          fontSize + 5
         );
+
+        // Thin stroke border on active/precursor plates
+        if (isSelected || isPredecessor || isDescendant) {
+          ctx.strokeStyle = isSelected ? 'rgba(0, 240, 255, 0.6)' : (isPredecessor ? 'rgba(16, 185, 129, 0.6)' : 'rgba(0, 240, 255, 0.4)');
+          ctx.lineWidth = 1 / transform.k;
+          ctx.strokeRect(
+            node.x - textMetrics.width / 2 - padding,
+            textY - 1,
+            textMetrics.width + padding * 2,
+            fontSize + 5
+          );
+        }
 
         ctx.fillStyle = isSelected ? '#38bdf8' : (isPredecessor ? '#6ee7b7' : (isDescendant ? '#67e8f9' : '#f1f5f9'));
         ctx.fillText(text, node.x, textY);
@@ -480,28 +446,25 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
     return closestNode;
   }, []);
 
-  // Rebuild and maintain simulation
+  // Rebuild and maintain organic force simulation
   const rebuildSimulation = useCallback(() => {
     const canvas = canvasRef.current;
     const width = (canvas ? canvas.width / (window.devicePixelRatio || 1) : 900) || 900;
     const height = (canvas ? canvas.height / (window.devicePixelRatio || 1) : 600) || 600;
-    const currentLayout = layoutModeRef.current;
 
     const existingMap = new Map<string, SimulationNode>(
       nodesRef.current.map(n => [n.id, n])
     );
 
-    // Compute active filtered innovations
-    const activeInnovations = activeEraFilter === 'ALL'
+    // Apply domain filtering
+    const activeInnovations = domainFilter === 'ALL'
       ? filteredInnovations
-      : filteredInnovations.filter(i => i.era === activeEraFilter);
+      : filteredInnovations.filter(i => i.domain === domainFilter);
 
     const updatedNodes: SimulationNode[] = activeInnovations.map(inv => {
       const deg = degreesMap.get(inv.id)?.totalDegree || 1;
       const radius = Math.max(8, Math.min(22, 7 + deg * 2.0));
       const existing = existingMap.get(inv.id);
-      const eraIdx = eraIndexMap.get(inv.era) ?? 0;
-      const targetEraX = GRAPH_PADDING_X + eraIdx * ERA_COLUMN_WIDTH + ERA_COLUMN_WIDTH / 2;
 
       if (existing) {
         return {
@@ -509,8 +472,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
           ...inv,
           radius,
           totalDegree: deg,
-          eraIndex: eraIdx,
-          targetEraX,
           x: existing.x,
           y: existing.y,
           vx: existing.vx,
@@ -520,11 +481,11 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
         };
       }
 
-      // Initial placement
-      const initX = currentLayout === 'timeline'
-        ? targetEraX + (Math.random() - 0.5) * 120
-        : width / 2 + (Math.random() - 0.5) * 300;
-      const initY = height / 2 + (Math.random() - 0.5) * 350;
+      // Initial circular distributed placement
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 50 + Math.random() * 250;
+      const initX = width / 2 + Math.cos(angle) * dist;
+      const initY = height / 2 + Math.sin(angle) * dist;
 
       return {
         ...inv,
@@ -534,8 +495,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
         vy: 0,
         radius,
         totalDegree: deg,
-        eraIndex: eraIdx,
-        targetEraX,
       };
     });
 
@@ -557,48 +516,26 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
       simulationRef.current.stop();
     }
 
-    // Configure simulation based on layout mode
-    const sim = d3.forceSimulation<SimulationNode>(updatedNodes);
-
-    if (currentLayout === 'timeline') {
-      // Timeline Mode: Constrained along historical era lanes
-      sim
-        .force('x', d3.forceX<SimulationNode>(d => d.targetEraX).strength(0.85))
-        .force('y', d3.forceY<SimulationNode>(height / 2).strength(0.12))
-        .force('collide', d3.forceCollide<SimulationNode>()
-          .radius(d => d.radius + 18)
-          .strength(0.95)
-          .iterations(4)
-        )
-        .force('charge', d3.forceManyBody<SimulationNode>()
-          .strength(d => -160 - d.radius * 6)
-          .distanceMax(450)
-        )
-        .velocityDecay(0.6)
-        .alpha(0.6)
-        .alphaDecay(0.035);
-    } else {
-      // Network Mesh Mode: Relational clustering
-      sim
-        .force('charge', d3.forceManyBody<SimulationNode>()
-          .strength(d => -220 - d.radius * 12)
-          .distanceMax(700)
-        )
-        .force('link', d3.forceLink<SimulationNode, SimulationLink>(updatedLinks)
-          .id(d => d.id)
-          .distance(d => 70 + (d.source.radius || 10) + (d.target.radius || 10))
-          .strength(0.35)
-        )
-        .force('center', d3.forceCenter(width / 2, height / 2).strength(0.05))
-        .force('collide', d3.forceCollide<SimulationNode>()
-          .radius(d => d.radius + 18)
-          .strength(0.95)
-          .iterations(4)
-        )
-        .velocityDecay(0.55)
-        .alpha(0.7)
-        .alphaDecay(0.028);
-    }
+    // Pure organic relational force-directed simulation
+    const sim = d3.forceSimulation<SimulationNode>(updatedNodes)
+      .force('charge', d3.forceManyBody<SimulationNode>()
+        .strength(d => -180 - d.radius * 8)
+        .distanceMax(650)
+      )
+      .force('link', d3.forceLink<SimulationNode, SimulationLink>(updatedLinks)
+        .id(d => d.id)
+        .distance(d => 65 + (d.source.radius || 10) + (d.target.radius || 10))
+        .strength(0.35)
+      )
+      .force('center', d3.forceCenter(width / 2, height / 2).strength(0.06))
+      .force('collide', d3.forceCollide<SimulationNode>()
+        .radius(d => d.radius + 16)
+        .strength(0.95)
+        .iterations(4)
+      )
+      .velocityDecay(0.55)
+      .alpha(0.7)
+      .alphaDecay(0.028);
 
     sim.on('tick', () => {
       render();
@@ -606,7 +543,7 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
 
     simulationRef.current = sim;
     render();
-  }, [filteredInnovations, allRelationships, degreesMap, activeEraFilter, eraIndexMap, render]);
+  }, [filteredInnovations, allRelationships, degreesMap, domainFilter, render]);
 
   // Synchronize canvas size via ResizeObserver
   useEffect(() => {
@@ -869,10 +806,10 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
 
     if (minX === Infinity) return;
 
-    const padding = 100;
+    const padding = 80;
     const graphWidth = (maxX - minX) + padding * 2;
     const graphHeight = (maxY - minY) + padding * 2;
-    const scale = Math.max(0.18, Math.min(1.2, Math.min(width / graphWidth, height / graphHeight)));
+    const scale = Math.max(0.2, Math.min(1.2, Math.min(width / graphWidth, height / graphHeight)));
 
     const centerX = (minX + maxX) / 2;
     const centerY = (minY + maxY) / 2;
@@ -884,28 +821,6 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
     d3.select(canvasRef.current)
       .transition()
       .duration(450)
-      .call(zoomBehaviorRef.current.transform, targetTransform);
-  };
-
-  const jumpToEra = (eraId: EraId) => {
-    if (!canvasRef.current || !zoomBehaviorRef.current) return;
-    const idx = eraIndexMap.get(eraId);
-    if (idx === undefined) return;
-
-    const canvas = canvasRef.current;
-    const width = canvas.width / (window.devicePixelRatio || 1);
-    const height = canvas.height / (window.devicePixelRatio || 1);
-
-    const eraCenterX = GRAPH_PADDING_X + idx * ERA_COLUMN_WIDTH + ERA_COLUMN_WIDTH / 2;
-    const targetScale = 0.95;
-
-    const targetTransform = d3.zoomIdentity
-      .translate(width / 2 - eraCenterX * targetScale, height / 2 - (height / 2) * targetScale)
-      .scale(targetScale);
-
-    d3.select(canvasRef.current)
-      .transition()
-      .duration(550)
       .call(zoomBehaviorRef.current.transform, targetTransform);
   };
 
@@ -927,81 +842,80 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
         isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen' : ''
       }`}
     >
-      {/* 1. Pinned Era Header Ribbon (Chronological Guide) */}
-      <div className="bg-[#0c0e15]/90 backdrop-blur-md border-b border-white/10 px-4 py-2.5 flex items-center justify-between z-20 shrink-0 select-none overflow-x-auto gap-2">
-        <div className="flex items-center space-x-2 shrink-0">
-          <Clock className="w-4 h-4 text-cyan-400" />
-          <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-300">
-            Historical Epochs:
-          </span>
+      {/* 1. Dedicated Knowledge Graph Header Ribbon */}
+      <div className="bg-[#0c0e15]/95 backdrop-blur-md border-b border-white/10 px-4 py-2 flex items-center justify-between z-20 shrink-0 select-none overflow-x-auto gap-3">
+        <div className="flex items-center space-x-2.5 shrink-0">
+          <div className="w-6 h-6 rounded bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400">
+            <Network className="w-3.5 h-3.5" />
+          </div>
+          <div>
+            <h1 className="text-xs font-bold text-slate-100 tracking-wide uppercase font-mono">
+              Knowledge Graph
+            </h1>
+            <p className="text-[10px] text-slate-400 font-mono">
+              Relational & Conceptual Network ({filteredInnovations.length} nodes)
+            </p>
+          </div>
         </div>
 
-        {/* Era Jump Pills */}
+        {/* Domain Filter Pills */}
         <div className="flex items-center space-x-1.5 overflow-x-auto py-0.5">
           <button
-            onClick={() => setActiveEraFilter('ALL')}
+            onClick={() => setDomainFilter('ALL')}
             className={`px-2.5 py-1 rounded text-xs font-mono shrink-0 transition-all ${
-              activeEraFilter === 'ALL'
-                ? 'bg-cyan-950/60 border border-cyan-500/50 text-cyan-300 shadow-glow-cyan'
+              domainFilter === 'ALL'
+                ? 'bg-cyan-950/70 border border-cyan-500/50 text-cyan-300 shadow-glow-cyan'
                 : 'bg-white/5 border border-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200'
             }`}
           >
-            All Eras ({filteredInnovations.length})
+            All Domains
           </button>
-          {ERAS.map(era => {
-            const count = filteredInnovations.filter(i => i.era === era.id).length;
-            const isActive = activeEraFilter === era.id;
+          {DOMAIN_LIST.map(dom => {
+            const count = filteredInnovations.filter(i => i.domain === dom.id).length;
+            const isActive = domainFilter === dom.id;
             return (
               <button
-                key={era.id}
-                onClick={() => {
-                  setActiveEraFilter(era.id);
-                  if (layoutMode === 'timeline') {
-                    jumpToEra(era.id);
-                  }
-                }}
+                key={dom.id}
+                onClick={() => setDomainFilter(dom.id)}
                 className={`flex items-center space-x-1.5 px-2 py-0.5 rounded text-[11px] font-mono shrink-0 transition-all border ${
                   isActive
                     ? 'bg-white/15 border-white/40 text-slate-100 shadow-sm'
-                    : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200'
+                    : 'bg-white/5 border border-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200'
                 }`}
-                title={`${era.name} (${era.period})`}
+                title={dom.name}
               >
                 <span 
                   className="w-2 h-2 rounded-full shrink-0"
-                  style={{ backgroundColor: era.color }}
+                  style={{ backgroundColor: dom.color }}
                 ></span>
-                <span className="truncate max-w-[120px]">{era.name.split('&')[0]}</span>
+                <span className="truncate max-w-[110px]">{dom.name}</span>
                 <span className="text-[10px] text-slate-500">({count})</span>
               </button>
             );
           })}
         </div>
 
-        {/* Layout Switcher Pill */}
-        <div className="flex items-center space-x-1 bg-white/5 p-0.5 rounded border border-white/10 shrink-0">
-          <button
-            onClick={() => setLayoutMode('timeline')}
-            className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all ${
-              layoutMode === 'timeline'
-                ? 'bg-cyan-950/60 text-cyan-300 border border-cyan-500/40'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-            title="Chronological Era Matrix: Nodes organized by historical era"
-          >
-            Era Matrix
-          </button>
-          <button
-            onClick={() => setLayoutMode('network')}
-            className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all ${
-              layoutMode === 'network'
-                ? 'bg-cyan-950/60 text-cyan-300 border border-cyan-500/40'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-            title="Relational Mesh: Organic force-directed network"
-          >
-            Relational Mesh
-          </button>
+        {/* Selection Status or Help Tip */}
+        <div className="flex items-center space-x-2 shrink-0">
+          {selectedInnovationId ? (
+            <div className="flex items-center space-x-2 bg-cyan-950/40 border border-cyan-500/30 px-2.5 py-1 rounded text-xs font-mono text-cyan-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="truncate max-w-[140px]">
+                {nodesRef.current.find(n => n.id === selectedInnovationId)?.name || 'Selected'}
+              </span>
+              <button
+                onClick={() => selectInnovation(null)}
+                className="hover:text-cyan-100 text-cyan-400 p-0.5"
+                title="Clear selection"
+              >
+                <X className="w-3 h-3" />
+              </button>
+            </div>
+          ) : (
+            <span className="text-[10px] font-mono text-slate-400 hidden xl:inline">
+              Double-click node for dossier • Click to trace lineage
+            </span>
+          )}
         </div>
       </div>
 
@@ -1117,27 +1031,36 @@ export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ defaultL
           </div>
         )}
 
-        {/* Hover Node Contextual HUD Tooltip */}
+        {/* Hover Node Contextual HUD Tooltip with canonical image preview */}
         {hoveredNode && hoverPos && (
           <div
-            className="fixed pointer-events-none z-50 bg-[#0f121d]/95 backdrop-blur-md border border-cyan-500/50 rounded-lg p-3 shadow-2xl max-w-xs text-xs space-y-1.5 transform -translate-x-1/2 -translate-y-full mb-3 animate-in fade-in duration-150 select-none"
+            className="fixed pointer-events-none z-50 bg-[#0f121d]/95 backdrop-blur-md border border-cyan-500/50 rounded-lg p-3 shadow-2xl max-w-xs text-xs space-y-2 transform -translate-x-1/2 -translate-y-full mb-3 animate-in fade-in duration-150 select-none"
             style={{ left: hoverPos.x, top: hoverPos.y }}
           >
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center space-x-2 truncate">
-                <span 
-                  className="w-2.5 h-2.5 rounded-full shrink-0"
-                  style={{ backgroundColor: DOMAINS[hoveredNode.domain]?.color }}
-                ></span>
-                <span className="font-bold text-slate-100 truncate">{hoveredNode.name}</span>
+            <div className="flex items-start space-x-2.5">
+              {VERIFIED_COMMONS_FALLBACKS[hoveredNode.id]?.url && (
+                <img 
+                  src={VERIFIED_COMMONS_FALLBACKS[hoveredNode.id].url} 
+                  alt={hoveredNode.name}
+                  referrerPolicy="no-referrer"
+                  className="w-12 h-12 rounded object-cover border border-white/15 shrink-0 bg-black/40"
+                />
+              )}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-1">
+                  <span className="font-bold text-slate-100 truncate text-[13px]">{hoveredNode.name}</span>
+                  <span className="text-[10px] font-mono text-cyan-400 shrink-0">{hoveredNode.date}</span>
+                </div>
+                <div className="flex items-center space-x-2 text-[10px] font-mono text-slate-400 mt-0.5">
+                  <span 
+                    className="w-2 h-2 rounded-full inline-block"
+                    style={{ backgroundColor: DOMAINS[hoveredNode.domain]?.color }}
+                  ></span>
+                  <span className="text-slate-300">{hoveredNode.region}</span>
+                  <span>•</span>
+                  <span>{hoveredNode.civilization}</span>
+                </div>
               </div>
-              <span className="text-[10px] font-mono text-cyan-400 shrink-0">{hoveredNode.date}</span>
-            </div>
-
-            <div className="flex items-center space-x-2 text-[10px] font-mono text-slate-400">
-              <span>{getEraById(hoveredNode.era)?.name}</span>
-              <span>•</span>
-              <span className="text-slate-300">{hoveredNode.region}</span>
             </div>
 
             <p className="text-[11px] text-slate-300 line-clamp-2 leading-relaxed">{hoveredNode.overview}</p>

@@ -47,6 +47,12 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'primary_archive'
       }
     ],
+    media: {
+      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      caption: 'Building material used in ancient Rome',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'Extensively documented by Vitruvius and Pliny the Elder.'
   },
@@ -101,6 +107,12 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'primary_archive'
       }
     ],
+    media: {
+      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      caption: 'Steel production method',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'Bessemer\'s patent (No. 2321) was filed in 1856.'
   },
@@ -150,6 +162,12 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'institutional'
       }
     ],
+    media: {
+      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG/330px-Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      caption: 'Vertical transport machine',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'The 1854 Crystal Palace demonstration is a famously documented public event.'
   },
@@ -199,6 +217,12 @@ export const batch7Innovations: Innovation[] = [
         sourceType: 'institutional'
       }
     ],
+    media: {
+      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Bakelit_Struktur.svg/330px-Bakelit_Struktur.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      caption: 'First synthetic plastic',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'Baekeland filed the "Heat and Pressure" patent in July 1907.'
   }

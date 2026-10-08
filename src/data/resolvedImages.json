@@ -516,5 +516,285 @@
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)",
     "license": "CC BY-SA 4.0"
+  },
+  "bow-and-arrow": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Guinea_Fowl_Hunter_%2849109425873%29.jpg/330px-Guinea_Fowl_Hunter_%2849109425873%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Ranged weapon system, sports equipment",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bow_and_arrow",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "rope-cordage": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Cordage_en_chanvre.jpg/330px-Cordage_en_chanvre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Length of braided strands",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Rope",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "abacus": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Abacus_%28PSF%29.png/330px-Abacus_%28PSF%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Calculating tool",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Abacus",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "mechanical-gears": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Animated_two_spur_gears_1_2.gif/330px-Animated_two_spur_gears_1_2.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Rotating circular machine part with teeth that mesh with another toothed part",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gear",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "library-of-alexandria": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Ancientlibraryalex.jpg/330px-Ancientlibraryalex.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Library in ancient Alexandria, Egypt",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Library_of_Alexandria",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "vaccination": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Smallpox_vaccine.jpg/330px-Smallpox_vaccine.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Preparation for acquired immunity to disease",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vaccine",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "anesthesia": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/A_gray_wolf_being_radio-collared.jpg/330px-A_gray_wolf_being_radio-collared.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "State of medically-controlled temporary loss of sensation or awareness",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Anesthesia",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "x-ray-imaging": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Color_X-ray_photogram.jpg/330px-Color_X-ray_photogram.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Form of electromagnetic radiation",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/X-ray",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "atomic-theory": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Helium_atom_QM.svg/330px-Helium_atom_QM.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Atomic theory is the scientific theory that matter is composed of particles called atoms. The definition of the word \"atom\" has changed over",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/History_of_atomic_theory",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "vulcanized-rubber": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/VulcanizationMold1941.jpg/330px-VulcanizationMold1941.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Process of hardening rubber",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vulcanization",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "electron-microscope": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/TITAN.jpg/330px-TITAN.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Type of microscope with electrons as a source of illumination",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Electron_microscope",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "air-conditioning": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/MITSUBISHI_ELECTRIC_WINDOW_TYPE_AIR_CONDITIONER_OUTDOOR_UNIT.jpg/330px-MITSUBISHI_ELECTRIC_WINDOW_TYPE_AIR_CONDITIONER_OUTDOOR_UNIT.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Cooling of air in an enclosed space",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Air_conditioning",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "electric-streetcar": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Muzeum_MHD%2C_tramvaje_T3_8084_a_6149%2C_zep%C5%99edu.jpg/330px-Muzeum_MHD%2C_tramvaje_T3_8084_a_6149%2C_zep%C5%99edu.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Street-running rail transit",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tram",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "glassmaking": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Fassade_Wilhelmstrasse_65%2C_Berlin-Mitte%2C_160417%2C_ako.jpg/330px-Fassade_Wilhelmstrasse_65%2C_Berlin-Mitte%2C_160417%2C_ako.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Transparent non-crystalline solid material",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Glass",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "currency-coins": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kiloware.JPG/330px-Kiloware.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Small, flat and usually round piece of material used as money",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Coin",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "gunpowder": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Black_Powder-1.JPG/330px-Black_Powder-1.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Type of firearm propellant",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gunpowder",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "periodic-table": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Colour_18-col_PT_with_labels.svg/330px-Colour_18-col_PT_with_labels.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Tabular arrangement of the chemical elements",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Periodic_table",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "laser": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Guiding_the_Milky_Way_%28potw2222a%29.jpg/330px-Guiding_the_Milky_Way_%28potw2222a%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Device that emits light via optical amplification",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Laser",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "mechanical-refrigeration": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/330px-Open_refrigerator_with_food_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Appliance for cold food storage",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Refrigerator",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "mri-scanner": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Structural_MRI_animation.ogv/250px--Structural_MRI_animation.ogv.jpg",
+    "caption": "Medical imaging technique",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Magnetic_resonance_imaging",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "pcr-dna-amplification": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/XBio_illustration_%E2%80%93_Polymerase_Chain_Reaction.png/330px-XBio_illustration_%E2%80%93_Polymerase_Chain_Reaction.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Laboratory technique to multiply a DNA sample for study",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Polymerase_chain_reaction",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "blockchain-cryptocurrency": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/330px-Bitcoin.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Decentralized digital cryptocurrency",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bitcoin",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "wind-turbine-electricity": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Windmills_D1-D4_%28Thornton_Bank%29.jpg/330px-Windmills_D1-D4_%28Thornton_Bank%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Device to generate electricity from wind",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wind_turbine",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "sewage-sanitation-systems": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Bazellgette_Sewer_Network_EN.svg/330px-Bazellgette_Sewer_Network_EN.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Infrastructure that conveys sewage or surface runoff using sewers",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sewerage",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "telescope-space-hubble": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Hubble_2009_close-up_2.jpg/330px-Hubble_2009_close-up_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "NASA/ESA space telescope launched in 1990",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "oral-contraceptive-pill": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Pilule_contraceptive.jpg/330px-Pilule_contraceptive.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Birth control method taken orally",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Combined_oral_contraceptive_pill",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "photography-camera": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg/330px-LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Optical device for recording images",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Camera",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "airplane-jet-engine": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/F100_F-15_engine.JPG/330px-F100_F-15_engine.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Aircraft engine that produces thrust by emitting a jet of gas",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jet_engine",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "roman-concrete": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Building material used in ancient Rome",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Roman_concrete",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "bessemer-steel": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Steel production method",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bessemer_process",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "elevator-safety": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG/330px-Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Vertical transport machine",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Elevator",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "synthetic-plastic-bakelite": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Bakelit_Struktur.svg/330px-Bakelit_Struktur.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "First synthetic plastic",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bakelite",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "transatlantic-telegraph": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg/330px-Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Former undersea telegraph cable",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Transatlantic_telegraph_cable",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "graphical-user-interface": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Example_of_a_GUI.png/330px-Example_of_a_GUI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "A graphical user interface, or GUI, is a form of user interface that allows users to interact with electronic devices through graphical icon",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Graphical_user_interface",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "crop-rotation": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Plodozmian.jpg/330px-Plodozmian.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Agricultural practice of changing crops",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Crop_rotation",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "haber-bosch-process": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fritz_Haber.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "caption": "Industrial process for ammonia production",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Haber_process",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "pasteurization": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg/330px-Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Process of preserving foods with heat",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pasteurization",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "double-entry-bookkeeping": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/330px-Pacioli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "15th c. Franciscan Friar, mathematician and publisher of accounting treatise",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Luca_Pacioli",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "joint-stock-company": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Society.svg/330px-Society.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Business entity owned by shareholders",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Joint-stock_company",
+    "license": "CC BY-SA / Public Domain"
+  },
+  "mass-production-assembly": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/A321_final_assembly_%289351765668%29.jpg/330px-A321_final_assembly_%289351765668%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Manufacturing process",
+    "attribution": "Wikimedia Commons / Wikipedia",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Assembly_line",
+    "license": "CC BY-SA / Public Domain"
   }
 }

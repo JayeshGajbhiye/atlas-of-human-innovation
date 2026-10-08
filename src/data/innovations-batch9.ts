@@ -47,6 +47,12 @@ export const batch9Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
+    media: {
+      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Plodozmian.jpg/330px-Plodozmian.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      caption: 'Agricultural practice of changing crops',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'While its origins are complex (tracing to Flanders), its 18th-century English codification is undisputed.'
   },
@@ -101,6 +107,12 @@ export const batch9Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
+    media: {
+      url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Fritz_Haber.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled',
+      caption: 'Industrial process for ammonia production',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'Haber demonstrated the process to BASF on July 2, 1909.'
   },
@@ -150,6 +162,12 @@ export const batch9Innovations: Innovation[] = [
         sourceType: 'academic'
       }
     ],
+    media: {
+      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg/330px-Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      caption: 'Process of preserving foods with heat',
+      attribution: 'Wikimedia Commons / Wikipedia',
+      license: 'CC BY-SA / Public Domain'
+    },
     confidence: 'VERIFIED',
     confidence_note: 'Pasteur applied for the patent for his wine-heating method in 1865.'
   }

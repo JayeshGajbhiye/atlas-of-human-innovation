@@ -239,7 +239,7 @@ export async function resolveInnovationImage(innovation: Innovation): Promise<In
     }
 
     // Step B: Existing innovation media if valid
-    if (innovation.media && innovation.media.url && !innovation.media.url.includes('/thumb/')) {
+    if (innovation.media && innovation.media.url && innovation.media.url.startsWith('http')) {
       const existing: InnovationImage = {
         url: innovation.media.url,
         caption: innovation.media.caption || innovation.name,

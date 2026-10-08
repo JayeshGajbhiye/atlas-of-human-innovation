@@ -3,6 +3,7 @@ import { useAtlas } from '../../context/AtlasContext';
 import { ERAS } from '../../data/eras';
 import { DOMAINS } from '../../data/domains';
 import { Innovation, EraId } from '../../types/innovation';
+import { VERIFIED_COMMONS_FALLBACKS } from '../../utils/imageService';
 import { Clock, ArrowRight } from 'lucide-react';
 
 export const TimelineView: React.FC = () => {
@@ -113,6 +114,7 @@ export const TimelineView: React.FC = () => {
                 {items.map(item => {
                   const domain = DOMAINS[item.domain];
                   const isSelected = item.id === selectedInnovationId;
+                  const itemImg = VERIFIED_COMMONS_FALLBACKS[item.id] || (item.media?.url ? { url: item.media.url } : null);
 
                   return (
                     <div
@@ -132,46 +134,61 @@ export const TimelineView: React.FC = () => {
                         style={{ backgroundColor: domain.color }}
                       ></span>
 
-                      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
-                        <div className="flex items-center space-x-2">
-                          <h3 className={`font-semibold text-sm transition-colors ${
-                            isSelected ? 'text-cyan-300' : 'text-slate-100 group-hover:text-cyan-400'
-                          }`}>
-                            {item.name}
-                          </h3>
-                          <span 
-                            className="text-[10px] font-mono px-1.5 py-0.2 rounded border"
-                            style={{ 
-                              color: domain.color,
-                              borderColor: `${domain.color}40`,
-                              backgroundColor: domain.bgRgba
-                            }}
-                          >
-                            {domain.name}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-2 shrink-0">
-                          <span className="text-xs font-mono font-medium text-slate-300">{item.date}</span>
-                          <span className="text-[10px] font-mono text-slate-500 uppercase px-1.5 py-0.5 rounded bg-white/5 border border-white/5">
-                            {item.confidence}
-                          </span>
-                        </div>
-                      </div>
+                      <div className="flex gap-3.5 items-start">
+                        {itemImg && itemImg.url && (
+                          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-md overflow-hidden bg-black/50 border border-white/10 shrink-0 self-start shadow-sm group-hover:border-white/20 transition-all">
+                            <img
+                              src={itemImg.url}
+                              alt={item.name}
+                              loading="lazy"
+                              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                        )}
 
-                      <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed mb-2">
-                        {item.overview}
-                      </p>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
+                            <div className="flex items-center space-x-2">
+                              <h3 className={`font-semibold text-sm transition-colors ${
+                                isSelected ? 'text-cyan-300' : 'text-slate-100 group-hover:text-cyan-400'
+                              }`}>
+                                {item.name}
+                              </h3>
+                              <span 
+                                className="text-[10px] font-mono px-1.5 py-0.2 rounded border"
+                                style={{ 
+                                  color: domain.color,
+                                  borderColor: `${domain.color}40`,
+                                  backgroundColor: domain.bgRgba
+                                }}
+                              >
+                                {domain.name}
+                              </span>
+                            </div>
+                            <div className="flex items-center space-x-2 shrink-0">
+                              <span className="text-xs font-mono font-medium text-slate-300">{item.date}</span>
+                              <span className="text-[10px] font-mono text-slate-500 uppercase px-1.5 py-0.5 rounded bg-white/5 border border-white/5">
+                                {item.confidence}
+                              </span>
+                            </div>
+                          </div>
 
-                      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/5 text-[11px] text-slate-400 font-mono">
-                        <div className="flex items-center space-x-2">
-                          <span>{item.region}</span>
-                          <span>•</span>
-                          <span>{item.civilization}</span>
-                        </div>
-                        <div className="flex items-center space-x-3 text-slate-400">
-                          <span>Predecessors: {item.predecessors.length}</span>
-                          <span>Descendants: {item.successors.length}</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                          <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed mb-2">
+                            {item.overview}
+                          </p>
+
+                          <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/5 text-[11px] text-slate-400 font-mono">
+                            <div className="flex items-center space-x-2">
+                              <span>{item.region}</span>
+                              <span>•</span>
+                              <span>{item.civilization}</span>
+                            </div>
+                            <div className="flex items-center space-x-3 text-slate-400">
+                              <span>Predecessors: {item.predecessors.length}</span>
+                              <span>Descendants: {item.successors.length}</span>
+                              <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

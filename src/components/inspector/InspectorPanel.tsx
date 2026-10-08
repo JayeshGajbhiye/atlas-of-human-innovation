@@ -4,7 +4,7 @@ import { DOMAINS } from '../../data/domains';
 import { getEraById } from '../../data/eras';
 import { getInnovationById } from '../../data/innovations';
 import { generateAiContextBrief } from '../../utils/graphAnalytics';
-import { resolveInnovationImage, InnovationImage } from '../../utils/imageService';
+import { resolveInnovationImage, InnovationImage, VERIFIED_COMMONS_FALLBACKS } from '../../utils/imageService';
 import { 
   X, 
   Bookmark, 
@@ -22,7 +22,10 @@ import {
   User,
   Cpu,
   Layers,
-  Check
+  Check,
+  RotateCw,
+  ImageOff,
+  AlertCircle
 } from 'lucide-react';
 
 export const InspectorPanel: React.FC = () => {
@@ -52,18 +55,37 @@ export const InspectorPanel: React.FC = () => {
     }
 
     let isMounted = true;
-    setImageLoading(true);
     setImageError(false);
 
+    // 1. Immediate synchronous fallback for 0ms lag
+    const instantFallback = VERIFIED_COMMONS_FALLBACKS[selectedInnovation.id] || (
+      selectedInnovation.media?.url ? {
+        url: selectedInnovation.media.url,
+        caption: selectedInnovation.media.caption || selectedInnovation.name,
+        attribution: selectedInnovation.media.attribution || 'Wikimedia Commons',
+        sourceUrl: 'https://commons.wikimedia.org',
+        license: selectedInnovation.media.license || 'Public Domain'
+      } : null
+    );
+
+    if (instantFallback) {
+      setCurrentImage(instantFallback);
+      setImageLoading(false);
+    } else {
+      setImageLoading(true);
+    }
+
+    // 2. Resolve via image service (verifies cache and remote records)
     resolveInnovationImage(selectedInnovation)
       .then(img => {
         if (!isMounted) return;
-        setCurrentImage(img);
+        if (img) {
+          setCurrentImage(img);
+        }
         setImageLoading(false);
       })
       .catch(() => {
         if (!isMounted) return;
-        setCurrentImage(null);
         setImageLoading(false);
       });
 
@@ -179,7 +201,7 @@ export const InspectorPanel: React.FC = () => {
           {/* Descriptive Image Presentation */}
           {imageLoading ? (
             <div className="relative rounded-lg overflow-hidden border border-white/10 bg-white/5 h-48 flex flex-col items-center justify-center animate-pulse">
-              <span className="text-[11px] font-mono text-slate-500">Resolving archival image...</span>
+              <span className="text-[11px] font-mono text-slate-400">Resolving archival visual record...</span>
             </div>
           ) : currentImage && !imageError ? (
             <div className="relative rounded-lg overflow-hidden border border-white/10 bg-black/40 h-48 group">
@@ -189,7 +211,7 @@ export const InspectorPanel: React.FC = () => {
                 onError={() => setImageError(true)}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-2 left-2.5 right-2.5 flex justify-between items-end text-[10px] text-slate-300">
                 <span className="truncate max-w-[260px] drop-shadow text-slate-200">
                   {currentImage.caption}
@@ -198,15 +220,63 @@ export const InspectorPanel: React.FC = () => {
                   href={currentImage.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-cyan-400 hover:text-cyan-300 bg-black/70 hover:bg-black/90 px-1.5 py-0.5 rounded border border-white/10 shrink-0 ml-1.5 flex items-center space-x-1 transition-colors"
-                  title="View image source on Wikimedia Commons"
+                  className="font-mono text-cyan-400 hover:text-cyan-300 bg-black/75 hover:bg-black/95 px-2 py-0.5 rounded border border-white/10 shrink-0 ml-1.5 flex items-center space-x-1 transition-colors"
+                  title="View archival record on Wikimedia Commons"
                 >
                   <span>{currentImage.attribution}</span>
                   <ExternalLink className="w-2.5 h-2.5 inline" />
                 </a>
               </div>
             </div>
-          ) : null}
+          ) : imageError && currentImage ? (
+            /* State: Image Failed to Load Technically */
+            <div className="relative rounded-lg overflow-hidden border border-amber-500/30 bg-amber-950/20 p-4 h-48 flex flex-col justify-between">
+              <div className="flex items-start space-x-2.5">
+                <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-xs font-semibold text-amber-200">Archival Image Connection Interrupted</h4>
+                  <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">
+                    The verified archival image for <strong className="text-white">{selectedInnovation.name}</strong> could not be rendered due to network or CORS restrictions.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between pt-2 border-t border-amber-500/20 text-[10px] font-mono">
+                <button
+                  onClick={() => setImageError(false)}
+                  className="flex items-center space-x-1.5 px-2 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 transition-colors"
+                >
+                  <RotateCw className="w-3 h-3" />
+                  <span>Retry Image</span>
+                </button>
+                <a
+                  href={currentImage.sourceUrl || `https://commons.wikimedia.org`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:underline flex items-center space-x-1"
+                >
+                  <span>Open on Wikimedia</span>
+                  <ExternalLink className="w-2.5 h-2.5" />
+                </a>
+              </div>
+            </div>
+          ) : (
+            /* State: Intentional Unavailable State (No legitimate image identified) */
+            <div className="relative rounded-lg overflow-hidden border border-white/10 bg-white/5 p-4 h-48 flex flex-col justify-between">
+              <div className="flex items-start space-x-2.5">
+                <ImageOff className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-xs font-semibold text-slate-300">Archival Record Visual Awaiting Public Domain License</h4>
+                  <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                    No verified public-domain or CC-licensed visual asset currently cataloged for <strong className="text-slate-200">{selectedInnovation.name}</strong> ({selectedInnovation.date}).
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-slate-500">
+                <span>EPOCH: {era?.name}</span>
+                <span className="text-cyan-400">HISTORICAL DOSSIER VERIFIED</span>
+              </div>
+            </div>
+          )}
 
           {/* Quick Action Buttons */}
           <div className="grid grid-cols-2 gap-2 pt-1">

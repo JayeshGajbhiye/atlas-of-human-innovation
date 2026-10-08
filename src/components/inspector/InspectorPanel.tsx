@@ -46,6 +46,7 @@ export const InspectorPanel: React.FC = () => {
   const [currentImage, setCurrentImage] = useState<InnovationImage | null>(null);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   const [imageError, setImageError] = useState<boolean>(false);
+  const [triedAlternative, setTriedAlternative] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
@@ -56,6 +57,7 @@ export const InspectorPanel: React.FC = () => {
 
     let isMounted = true;
     setImageError(false);
+    setTriedAlternative(false);
 
     // 1. Immediate synchronous fallback for 0ms lag
     const instantFallback = VERIFIED_COMMONS_FALLBACKS[selectedInnovation.id] || (
@@ -208,7 +210,21 @@ export const InspectorPanel: React.FC = () => {
               <img
                 src={currentImage.url}
                 alt={selectedInnovation.name}
-                onError={() => setImageError(true)}
+                referrerPolicy="no-referrer"
+                onError={() => {
+                  if (!triedAlternative && currentImage?.url) {
+                    setTriedAlternative(true);
+                    // If a resized thumbnail was blocked, try alternative size or unscaled
+                    if (currentImage.url.includes('/thumb/')) {
+                      const altUrl = currentImage.url.replace(/\/330px-/, '/500px-');
+                      if (altUrl !== currentImage.url) {
+                        setCurrentImage({ ...currentImage, url: altUrl });
+                        return;
+                      }
+                    }
+                  }
+                  setImageError(true);
+                }}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
@@ -242,7 +258,10 @@ export const InspectorPanel: React.FC = () => {
               </div>
               <div className="flex items-center justify-between pt-2 border-t border-amber-500/20 text-[10px] font-mono">
                 <button
-                  onClick={() => setImageError(false)}
+                  onClick={() => {
+                    setImageError(false);
+                    setTriedAlternative(false);
+                  }}
                   className="flex items-center space-x-1.5 px-2 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 transition-colors"
                 >
                   <RotateCw className="w-3 h-3" />

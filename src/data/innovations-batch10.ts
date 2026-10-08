@@ -48,7 +48,7 @@ export const batch10Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/330px-Pacioli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/330px-Pacioli.jpg',
       caption: '15th c. Franciscan Friar, mathematician and publisher of accounting treatise',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -103,7 +103,7 @@ export const batch10Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Society.svg/330px-Society.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Society.svg/330px-Society.svg.png',
       caption: 'Business entity owned by shareholders',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -163,7 +163,7 @@ export const batch10Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/A321_final_assembly_%289351765668%29.jpg/330px-A321_final_assembly_%289351765668%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/A321_final_assembly_%289351765668%29.jpg/330px-A321_final_assembly_%289351765668%29.jpg',
       caption: 'Manufacturing process',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'

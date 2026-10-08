@@ -1,797 +1,797 @@
 {
   "stone-tools": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Handaxe_by_John_Frere.png/330px-Handaxe_by_John_Frere.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Handaxe_by_John_Frere.png/330px-Handaxe_by_John_Frere.png",
     "caption": "Stone tool",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Hand_axe",
     "license": "Public Domain / CC BY-SA"
   },
   "controlled-fire": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Font-de-Gaume.jpg/330px-Font-de-Gaume.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Font-de-Gaume.jpg/330px-Font-de-Gaume.jpg",
     "caption": "Aspect of human history",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans",
     "license": "Public Domain / CC BY-SA"
   },
   "clothing-needles": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/A_depiction_of_needle.JPG/330px-A_depiction_of_needle.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/A_depiction_of_needle.JPG/330px-A_depiction_of_needle.JPG",
     "caption": "Needle with hole to hold thread for sewing",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Sewing_needle",
     "license": "Public Domain / CC BY-SA"
   },
   "agriculture-domestication": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/PivotWithDrops.JPG/330px-PivotWithDrops.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/PivotWithDrops.JPG/330px-PivotWithDrops.JPG",
     "caption": "Cultivation of plants and animals to produce foods, fibers, fuels, and raw materials",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Agriculture",
     "license": "Public Domain / CC BY-SA"
   },
   "animal-domestication": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Murgjo_Sharr_Mountain_Dog_Nedi_Limani.jpg/330px-Murgjo_Sharr_Mountain_Dog_Nedi_Limani.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Murgjo_Sharr_Mountain_Dog_Nedi_Limani.jpg/330px-Murgjo_Sharr_Mountain_Dog_Nedi_Limani.jpg",
     "caption": "Selective breeding of plants and animals to serve humans",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Domestication",
     "license": "Public Domain / CC BY-SA"
   },
   "pottery": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Traditional_pottery_in_Nigeria_%28Ikpu_ite%29_19.jpg/330px-Traditional_pottery_in_Nigeria_%28Ikpu_ite%29_19.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Traditional_pottery_in_Nigeria_%28Ikpu_ite%29_19.jpg/330px-Traditional_pottery_in_Nigeria_%28Ikpu_ite%29_19.jpg",
     "caption": "Craft of making objects from clay",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Pottery",
     "license": "Public Domain / CC BY-SA"
   },
   "metallurgy-copper": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/TVA_phosphate_smelting_furnace.jpg/330px-TVA_phosphate_smelting_furnace.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/TVA_phosphate_smelting_furnace.jpg/330px-TVA_phosphate_smelting_furnace.jpg",
     "caption": "Use of heat and a reducing agent to extract metal from ore",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Smelting",
     "license": "Public Domain / CC BY-SA"
   },
   "the-wheel": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg/330px-Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg/330px-Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg",
     "caption": "Circular component rotating on an axle",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Wheel",
     "license": "Public Domain / CC BY-SA"
   },
   "writing-cuneiform": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Xerxes_Cuneiform_Van.JPG/330px-Xerxes_Cuneiform_Van.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Xerxes_Cuneiform_Van.JPG/330px-Xerxes_Cuneiform_Van.JPG",
     "caption": "Writing system of the ancient Near East",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Cuneiform",
     "license": "Public Domain / CC BY-SA"
   },
   "mathematics-base60": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Babylonian_numerals.svg/330px-Babylonian_numerals.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Babylonian_numerals.svg/330px-Babylonian_numerals.svg.png",
     "caption": "Numeral system",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Babylonian_cuneiform_numerals",
     "license": "Public Domain / CC BY-SA"
   },
   "geometry-euclidean": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Sanzio_01_Euclid.jpg/330px-Sanzio_01_Euclid.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Sanzio_01_Euclid.jpg/330px-Sanzio_01_Euclid.jpg",
     "caption": "Mathematical model of the physical space",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Euclidean_geometry",
     "license": "Public Domain / CC BY-SA"
   },
   "astronomy-astrolabe": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Khalili_Collection_Islamic_Art_sci_0430_back.jpg/330px-Khalili_Collection_Islamic_Art_sci_0430_back.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Khalili_Collection_Islamic_Art_sci_0430_back.jpg/330px-Khalili_Collection_Islamic_Art_sci_0430_back.jpg",
     "caption": "Astronomical instrument",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Astrolabe",
     "license": "Public Domain / CC BY-SA"
   },
   "cartography-maps": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/World_Map_1689.JPG/330px-World_Map_1689.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/World_Map_1689.JPG/330px-World_Map_1689.JPG",
     "caption": "Study and practice of making maps",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Cartography",
     "license": "Public Domain / CC BY-SA"
   },
   "magnetic-compass": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/2016_Busola.JPG/330px-2016_Busola.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2016_Busola.JPG/330px-2016_Busola.JPG",
     "caption": "Instrument used for navigation and orientation",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Compass",
     "license": "Public Domain / CC BY-SA"
   },
   "navigation-maritime": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Kaart_Lezen.jpg/330px-Kaart_Lezen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kaart_Lezen.jpg/330px-Kaart_Lezen.jpg",
     "caption": "Process of monitoring and controlling the movement of a craft or vehicle",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Navigation",
     "license": "Public Domain / CC BY-SA"
   },
   "mechanical-clock": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg/330px-Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg/330px-Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg",
     "caption": "Instrument for measuring, keeping or indicating time",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Clock",
     "license": "Public Domain / CC BY-SA"
   },
   "chronometer-longitude": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Frodsham_chronometer_mechanism.jpg/330px-Frodsham_chronometer_mechanism.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Frodsham_chronometer_mechanism.jpg/330px-Frodsham_chronometer_mechanism.jpg",
     "caption": "Clock used on ships to aid in navigation",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Marine_chronometer",
     "license": "Public Domain / CC BY-SA"
   },
   "printing-press": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Gutenberg_press.png/330px-Gutenberg_press.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Gutenberg_press.png/330px-Gutenberg_press.png",
     "caption": "Machine for applying ink under pressure",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Printing_press",
     "license": "Public Domain / CC BY-SA"
   },
   "papyrus-paper": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Papiermuseum_Basel_2008_%2838%29.jpg/330px-Papiermuseum_Basel_2008_%2838%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Papiermuseum_Basel_2008_%2838%29.jpg/330px-Papiermuseum_Basel_2008_%2838%29.jpg",
     "caption": "Economic sector",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Papermaking",
     "license": "Public Domain / CC BY-SA"
   },
   "scientific-method": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Somer_Francis_Bacon.jpg/330px-Somer_Francis_Bacon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Somer_Francis_Bacon.jpg/330px-Somer_Francis_Bacon.jpg",
     "caption": "English philosopher and statesman (1561–1626)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Francis_Bacon",
     "license": "Public Domain / CC BY-SA"
   },
   "optics-microscope-telescope": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/330px-Scientists_are_working_in_the_lab.9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/330px-Scientists_are_working_in_the_lab.9.jpg",
     "caption": "Microscope that uses visible light",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Optical_microscope",
     "license": "Public Domain / CC BY-SA"
   },
   "classical-mechanics-newton": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg/330px-Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg/330px-Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg",
     "caption": "English polymath (1642–1727)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Isaac_Newton",
     "license": "Public Domain / CC BY-SA"
   },
   "calculus": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg/330px-Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg/330px-Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg",
     "caption": "German polymath (1646–1716)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz",
     "license": "Public Domain / CC BY-SA"
   },
   "steam-engine": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Steam_locomotive_gear_%28J%C5%BD_06-018%3B_Slovenia%29.jpg/330px-Steam_locomotive_gear_%28J%C5%BD_06-018%3B_Slovenia%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Steam_locomotive_gear_%28J%C5%BD_06-018%3B_Slovenia%29.jpg/330px-Steam_locomotive_gear_%28J%C5%BD_06-018%3B_Slovenia%29.jpg",
     "caption": "Engine that uses steam to perform mechanical work",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Steam_engine",
     "license": "Public Domain / CC BY-SA"
   },
   "steam-locomotive": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Number_4468_Mallard_in_York.jpg/330px-Number_4468_Mallard_in_York.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Number_4468_Mallard_in_York.jpg/330px-Number_4468_Mallard_in_York.jpg",
     "caption": "Railway locomotive powered by a steam engine",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Steam_locomotive",
     "license": "Public Domain / CC BY-SA"
   },
   "thermodynamics": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Heat_engine.png/330px-Heat_engine.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Heat_engine.png/330px-Heat_engine.png",
     "caption": "System that converts heat or thermal energy to mechanical work",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Heat_engine",
     "license": "Public Domain / CC BY-SA"
   },
   "electric-telegraph": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Cooke_and_Wheatstone_electric_telegraph.jpg/330px-Cooke_and_Wheatstone_electric_telegraph.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Cooke_and_Wheatstone_electric_telegraph.jpg/330px-Cooke_and_Wheatstone_electric_telegraph.jpg",
     "caption": "Early system for transmitting text over wires",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Electrical_telegraph",
     "license": "Public Domain / CC BY-SA"
   },
   "electromagnetism-maxwell": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/James-Clerk-Maxwell-1831-1879.jpg/330px-James-Clerk-Maxwell-1831-1879.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/James-Clerk-Maxwell-1831-1879.jpg/330px-James-Clerk-Maxwell-1831-1879.jpg",
     "caption": "Scottish physicist and mathematician (1831–1879)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/James_Clerk_Maxwell",
     "license": "Public Domain / CC BY-SA"
   },
   "electrical-generator": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Modern_Steam_Turbine_Generator.jpg/330px-Modern_Steam_Turbine_Generator.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Modern_Steam_Turbine_Generator.jpg/330px-Modern_Steam_Turbine_Generator.jpg",
     "caption": "Device that converts other energy to electrical energy",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Electric_generator",
     "license": "Public Domain / CC BY-SA"
   },
   "germ-theory": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg/330px-Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg/330px-Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg",
     "caption": "French chemist, pharmacist and microbiologist (1822–1895)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Louis_Pasteur",
     "license": "Public Domain / CC BY-SA"
   },
   "evolution-natural-selection": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Charles_Darwin_seated_crop.jpg/330px-Charles_Darwin_seated_crop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charles_Darwin_seated_crop.jpg/330px-Charles_Darwin_seated_crop.jpg",
     "caption": "English naturalist and biologist (1809–1882)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Charles_Darwin",
     "license": "Public Domain / CC BY-SA"
   },
   "internal-combustion-engine": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Four_stroke_engine_diagram.jpg/330px-Four_stroke_engine_diagram.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Four_stroke_engine_diagram.jpg/330px-Four_stroke_engine_diagram.jpg",
     "caption": "Engine in which fuel combusts with an oxidizer",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Internal_combustion_engine",
     "license": "Public Domain / CC BY-SA"
   },
   "telephone": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Telefon_BW_2012-02-18_13-44-32.JPG/330px-Telefon_BW_2012-02-18_13-44-32.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Telefon_BW_2012-02-18_13-44-32.JPG/330px-Telefon_BW_2012-02-18_13-44-32.JPG",
     "caption": "Telecommunications device",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Telephone",
     "license": "Public Domain / CC BY-SA"
   },
   "radio-telecommunication": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Radio_towers_on_Sandia_Peak_-_closeup.jpg/330px-Radio_towers_on_Sandia_Peak_-_closeup.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Radio_towers_on_Sandia_Peak_-_closeup.jpg/330px-Radio_towers_on_Sandia_Peak_-_closeup.jpg",
     "caption": "Use of radio waves for communication",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Radio",
     "license": "Public Domain / CC BY-SA"
   },
   "aviation-powered-flight": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/First_flight2.jpg/330px-First_flight2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/First_flight2.jpg/330px-First_flight2.jpg",
     "caption": "First powered aircraft built by the Wright brothers",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Wright_Flyer",
     "license": "Public Domain / CC BY-SA"
   },
   "special-general-relativity": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/330px-Albert_Einstein_Head_cleaned.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/330px-Albert_Einstein_Head_cleaned.jpg",
     "caption": "German-born theoretical physicist (1879–1955)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Albert_Einstein",
     "license": "Public Domain / CC BY-SA"
   },
   "quantum-mechanics": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Max_Planck_by_Hugo_Erfurth_1938cr_-_restoration1.jpg/330px-Max_Planck_by_Hugo_Erfurth_1938cr_-_restoration1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Max_Planck_by_Hugo_Erfurth_1938cr_-_restoration1.jpg/330px-Max_Planck_by_Hugo_Erfurth_1938cr_-_restoration1.jpg",
     "caption": "German physicist (1858–1947)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Max_Planck",
     "license": "Public Domain / CC BY-SA"
   },
   "radar": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Radar_antenna.jpg/330px-Radar_antenna.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Radar_antenna.jpg/330px-Radar_antenna.jpg",
     "caption": "Object detection system using radio waves",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Radar",
     "license": "Public Domain / CC BY-SA"
   },
   "antibiotics-penicillin": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Penicillin_core.svg/330px-Penicillin_core.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Penicillin_core.svg/330px-Penicillin_core.svg.png",
     "caption": "Group of antibiotics derived from fungi",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Penicillin",
     "license": "Public Domain / CC BY-SA"
   },
   "nuclear-fission": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Nuclear_fission.svg/330px-Nuclear_fission.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Nuclear_fission.svg/330px-Nuclear_fission.svg.png",
     "caption": "Reaction that splits an atomic nucleus",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Nuclear_fission",
     "license": "Public Domain / CC BY-SA"
   },
   "analytical-engine-babbage": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg",
     "caption": "English mathematician, philosopher, and engineer (1791–1871)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Charles_Babbage",
     "license": "Public Domain / CC BY-SA"
   },
   "turing-machine-formal-logic": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Alan_turing_header.jpg/330px-Alan_turing_header.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Alan_turing_header.jpg/330px-Alan_turing_header.jpg",
     "caption": "English computer scientist (1912–1954)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Alan_Turing",
     "license": "Public Domain / CC BY-SA"
   },
   "electronic-computer-eniac": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/ENIAC_Penn1.jpg/330px-ENIAC_Penn1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/ENIAC_Penn1.jpg/330px-ENIAC_Penn1.jpg",
     "caption": "First electronic general-purpose digital computer",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/ENIAC",
     "license": "Public Domain / CC BY-SA"
   },
   "transistor-semiconductor": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Transbauformen.jpg/330px-Transbauformen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Transbauformen.jpg/330px-Transbauformen.jpg",
     "caption": "Solid-state electrically operated switch also used as an amplifier",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Transistor",
     "license": "Public Domain / CC BY-SA"
   },
   "silicon-integrated-circuit": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/NXP_PCF8577C_LCD_driver_with_I%C2%B2C_%28Colour_Corrected%29.jpg/330px-NXP_PCF8577C_LCD_driver_with_I%C2%B2C_%28Colour_Corrected%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/NXP_PCF8577C_LCD_driver_with_I%C2%B2C_%28Colour_Corrected%29.jpg/330px-NXP_PCF8577C_LCD_driver_with_I%C2%B2C_%28Colour_Corrected%29.jpg",
     "caption": "Electronic circuit formed on a small, flat piece of semiconductor material",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Integrated_circuit",
     "license": "Public Domain / CC BY-SA"
   },
   "dna-double-helix": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/DNA_Structure%2BKey%2BLabelled.pn_NoBB.png/330px-DNA_Structure%2BKey%2BLabelled.pn_NoBB.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/DNA_Structure%2BKey%2BLabelled.pn_NoBB.png/330px-DNA_Structure%2BKey%2BLabelled.pn_NoBB.png",
     "caption": "Molecule that carries genetic information",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/DNA",
     "license": "Public Domain / CC BY-SA"
   },
   "rocketry-spaceflight": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Fus%C3%A9e_V2_%28cropped%29.jpg/330px-Fus%C3%A9e_V2_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Fus%C3%A9e_V2_%28cropped%29.jpg/330px-Fus%C3%A9e_V2_%28cropped%29.jpg",
     "caption": "German long-range ballistic missile",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/V-2_rocket",
     "license": "Public Domain / CC BY-SA"
   },
   "satellites-gps": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/GPS_Block_IIIA.jpg/330px-GPS_Block_IIIA.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/GPS_Block_IIIA.jpg/330px-GPS_Block_IIIA.jpg",
     "caption": "American satellite-based radio navigation service",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Global_Positioning_System",
     "license": "Public Domain / CC BY-SA"
   },
   "microprocessor-cpu": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Intel_C4004.jpg/330px-Intel_C4004.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Intel_C4004.jpg/330px-Intel_C4004.jpg",
     "caption": "4-bit microprocessor",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Intel_4004",
     "license": "Public Domain / CC BY-SA"
   },
   "internet-arpanet": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Arpanet_logical_map%2C_march_1977.png/330px-Arpanet_logical_map%2C_march_1977.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Arpanet_logical_map%2C_march_1977.png/330px-Arpanet_logical_map%2C_march_1977.png",
     "caption": "Early packet switching network (1969–1990)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/ARPANET",
     "license": "Public Domain / CC BY-SA"
   },
   "personal-computer": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Golden_ratio_logo_design_technique.jpg/330px-Golden_ratio_logo_design_technique.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Golden_ratio_logo_design_technique.jpg/330px-Golden_ratio_logo_design_technique.jpg",
     "caption": "Computer intended for use by an individual person",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Personal_computer",
     "license": "Public Domain / CC BY-SA"
   },
   "deep-learning-alexnet": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/AlexNet_block_diagram.svg/330px-AlexNet_block_diagram.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/AlexNet_block_diagram.svg/330px-AlexNet_block_diagram.svg.png",
     "caption": "Influential 2012 deep convolutional neural network",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/AlexNet",
     "license": "Public Domain / CC BY-SA"
   },
   "transformer-attention": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/330px-Transformer%2C_full_architecture.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/330px-Transformer%2C_full_architecture.png",
     "caption": "Algorithm for modelling sequential data",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Transformer_(deep_learning)",
     "license": "Public Domain / CC BY-SA"
   },
   "metallurgy-iron": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Alto_Horno%2C_Puerto_de_Sagunto%2C_Espa%C3%B1a%2C_2015-01-04%2C_DD_91.JPG/330px-Alto_Horno%2C_Puerto_de_Sagunto%2C_Espa%C3%B1a%2C_2015-01-04%2C_DD_91.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Alto_Horno%2C_Puerto_de_Sagunto%2C_Espa%C3%B1a%2C_2015-01-04%2C_DD_91.JPG/330px-Alto_Horno%2C_Puerto_de_Sagunto%2C_Espa%C3%B1a%2C_2015-01-04%2C_DD_91.JPG",
     "caption": "Type of furnace used for smelting to produce industrial metals",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Blast_furnace",
     "license": "Public Domain / CC BY-SA"
   },
   "aqueducts-water-systems": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/The_Roman_Aquaduct_at_M%C3%B3ria_%28Lesvos%29.ogv/330px--The_Roman_Aquaduct_at_M%C3%B3ria_%28Lesvos%29.ogv.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/The_Roman_Aquaduct_at_M%C3%B3ria_%28Lesvos%29.ogv/330px--The_Roman_Aquaduct_at_M%C3%B3ria_%28Lesvos%29.ogv.jpg",
     "caption": "Type of aqueduct built in ancient Rome",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Roman_aqueduct",
     "license": "Public Domain / CC BY-SA"
   },
   "heliocentric-model": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Nikolaus_Kopernikus_MOT.jpg/330px-Nikolaus_Kopernikus_MOT.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Nikolaus_Kopernikus_MOT.jpg/330px-Nikolaus_Kopernikus_MOT.jpg",
     "caption": "Mathematician and astronomer (1473–1543)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Nicolaus_Copernicus",
     "license": "Public Domain / CC BY-SA"
   },
   "battery-voltaic-pile": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Voltaic_pile.svg/330px-Voltaic_pile.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Voltaic_pile.svg/330px-Voltaic_pile.svg.png",
     "caption": "Early electric battery",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Voltaic_pile",
     "license": "Public Domain / CC BY-SA"
   },
   "bessemer-steel-process": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg",
     "caption": "Steel production method",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Bessemer_process",
     "license": "Public Domain / CC BY-SA"
   },
   "space-station-iss": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/The_station_pictured_from_the_SpaceX_Crew_Dragon_5.jpg/330px-The_station_pictured_from_the_SpaceX_Crew_Dragon_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/The_station_pictured_from_the_SpaceX_Crew_Dragon_5.jpg/330px-The_station_pictured_from_the_SpaceX_Crew_Dragon_5.jpg",
     "caption": "Modular space station in low Earth orbit",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/International_Space_Station",
     "license": "Public Domain / CC BY-SA"
   },
   "paved-roads-network": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Roads_in_the_Roman_Empire.jpg/330px-Roads_in_the_Roman_Empire.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Roads_in_the_Roman_Empire.jpg/330px-Roads_in_the_Roman_Empire.jpg",
     "caption": "Roads built in service of the ancient Roman civilization",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Roman_roads",
     "license": "Public Domain / CC BY-SA"
   },
   "decimal-zero-algebra": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Madrid_-_Ciudad_Universitaria%2C_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg/330px-Madrid_-_Ciudad_Universitaria%2C_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Madrid_-_Ciudad_Universitaria%2C_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg/330px-Madrid_-_Ciudad_Universitaria%2C_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg",
     "caption": "Islamic mathematician (c. 780 – c. 850)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Al-Khwarizmi",
     "license": "Public Domain / CC BY-SA"
   },
   "silicon-solar-cell": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Solar_cell.png/330px-Solar_cell.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Solar_cell.png/330px-Solar_cell.png",
     "caption": "Device used to produce electricity from light",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Solar_cell",
     "license": "Public Domain / CC BY-SA"
   },
   "optical-fiber-telecom": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Fibreoptic.jpg/330px-Fibreoptic.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Fibreoptic.jpg/330px-Fibreoptic.jpg",
     "caption": "Light-conducting fiber",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Optical_fiber",
     "license": "Public Domain / CC BY-SA"
   },
   "lithium-ion-battery": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Li_ion_laptop_battery.jpg/330px-Li_ion_laptop_battery.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Li_ion_laptop_battery.jpg/330px-Li_ion_laptop_battery.jpg",
     "caption": "Type of rechargeable battery",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Lithium-ion_battery",
     "license": "Public Domain / CC BY-SA"
   },
   "reusable-orbital-rocketry": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Falcon_9_logo.svg/330px-Falcon_9_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Falcon_9_logo.svg/330px-Falcon_9_logo.svg.png",
     "caption": "Partially-reusable medium-lift launch vehicle by SpaceX",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Falcon_9",
     "license": "Public Domain / CC BY-SA"
   },
   "genetic-engineering-crispr": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/4QYZ.png/330px-4QYZ.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/4QYZ.png/330px-4QYZ.png",
     "caption": "Family of DNA sequences found in prokaryotic organisms",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/CRISPR",
     "license": "Public Domain / CC BY-SA"
   },
   "quantum-computing": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/IBM_Quantum_Computer_Demo_at_ITUWTSA_2024%2C_Delhi_2.jpg/330px-IBM_Quantum_Computer_Demo_at_ITUWTSA_2024%2C_Delhi_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/IBM_Quantum_Computer_Demo_at_ITUWTSA_2024%2C_Delhi_2.jpg/330px-IBM_Quantum_Computer_Demo_at_ITUWTSA_2024%2C_Delhi_2.jpg",
     "caption": "Computer hardware technology that uses quantum mechanics",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Quantum_computing",
     "license": "Public Domain / CC BY-SA"
   },
   "world-wide-web": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Chrome_on_Linux.png/330px-Chrome_on_Linux.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Chrome_on_Linux.png/330px-Chrome_on_Linux.png",
     "caption": "Linked hypertext system on the Internet",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/World_Wide_Web",
     "license": "Public Domain / CC BY-SA"
   },
   "artificial-intelligence-birth": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/John_McCarthy_Stanford.jpg/330px-John_McCarthy_Stanford.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/John_McCarthy_Stanford.jpg/330px-John_McCarthy_Stanford.jpg",
     "caption": "American scientist (1927–2011)",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)",
     "license": "Public Domain / CC BY-SA"
   },
   "neural-networks-backprop": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/330px-Colored_neural_network.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/330px-Colored_neural_network.svg.png",
     "caption": "Computational model used in machine learning",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Neural_network_(machine_learning)",
     "license": "Public Domain / CC BY-SA"
   },
   "smartphone-mobile": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/IPhone_18_Pro_Vector.svg/330px-IPhone_18_Pro_Vector.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/IPhone_18_Pro_Vector.svg/330px-IPhone_18_Pro_Vector.svg.png",
     "caption": "Line of smartphones by Apple",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/IPhone",
     "license": "Public Domain / CC BY-SA"
   },
   "autonomous-navigation": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Stanley2.JPG/330px-Stanley2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Stanley2.JPG/330px-Stanley2.JPG",
     "caption": "Autonomous car",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Stanley_(vehicle)",
     "license": "Public Domain / CC BY-SA"
   },
   "concrete-hydraulic-mortar": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg",
     "caption": "Building material used in ancient Rome",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Roman_concrete",
     "license": "Public Domain / CC BY-SA"
   },
   "generative-ai-llm": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/330px-Transformer%2C_full_architecture.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/330px-Transformer%2C_full_architecture.png",
     "caption": "Transformer neural network architecture powering modern Large Language Models",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)",
     "license": "CC BY-SA 4.0"
   },
   "bow-and-arrow": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Guinea_Fowl_Hunter_%2849109425873%29.jpg/330px-Guinea_Fowl_Hunter_%2849109425873%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Guinea_Fowl_Hunter_%2849109425873%29.jpg/330px-Guinea_Fowl_Hunter_%2849109425873%29.jpg",
     "caption": "Ranged weapon system, sports equipment",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Bow_and_arrow",
     "license": "CC BY-SA / Public Domain"
   },
   "rope-cordage": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Cordage_en_chanvre.jpg/330px-Cordage_en_chanvre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cordage_en_chanvre.jpg/330px-Cordage_en_chanvre.jpg",
     "caption": "Length of braided strands",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Rope",
     "license": "CC BY-SA / Public Domain"
   },
   "abacus": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Abacus_%28PSF%29.png/330px-Abacus_%28PSF%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Abacus_%28PSF%29.png/330px-Abacus_%28PSF%29.png",
     "caption": "Calculating tool",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Abacus",
     "license": "CC BY-SA / Public Domain"
   },
   "mechanical-gears": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Animated_two_spur_gears_1_2.gif/330px-Animated_two_spur_gears_1_2.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Animated_two_spur_gears_1_2.gif/330px-Animated_two_spur_gears_1_2.gif",
     "caption": "Rotating circular machine part with teeth that mesh with another toothed part",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Gear",
     "license": "CC BY-SA / Public Domain"
   },
   "library-of-alexandria": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Ancientlibraryalex.jpg/330px-Ancientlibraryalex.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ancientlibraryalex.jpg/330px-Ancientlibraryalex.jpg",
     "caption": "Library in ancient Alexandria, Egypt",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Library_of_Alexandria",
     "license": "CC BY-SA / Public Domain"
   },
   "vaccination": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Smallpox_vaccine.jpg/330px-Smallpox_vaccine.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Smallpox_vaccine.jpg/330px-Smallpox_vaccine.jpg",
     "caption": "Preparation for acquired immunity to disease",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Vaccine",
     "license": "CC BY-SA / Public Domain"
   },
   "anesthesia": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/A_gray_wolf_being_radio-collared.jpg/330px-A_gray_wolf_being_radio-collared.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/A_gray_wolf_being_radio-collared.jpg/330px-A_gray_wolf_being_radio-collared.jpg",
     "caption": "State of medically-controlled temporary loss of sensation or awareness",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Anesthesia",
     "license": "CC BY-SA / Public Domain"
   },
   "x-ray-imaging": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Color_X-ray_photogram.jpg/330px-Color_X-ray_photogram.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Color_X-ray_photogram.jpg/330px-Color_X-ray_photogram.jpg",
     "caption": "Form of electromagnetic radiation",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/X-ray",
     "license": "CC BY-SA / Public Domain"
   },
   "atomic-theory": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Helium_atom_QM.svg/330px-Helium_atom_QM.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Helium_atom_QM.svg/330px-Helium_atom_QM.svg.png",
     "caption": "Atomic theory is the scientific theory that matter is composed of particles called atoms. The definition of the word \"atom\" has changed over",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/History_of_atomic_theory",
     "license": "CC BY-SA / Public Domain"
   },
   "vulcanized-rubber": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/VulcanizationMold1941.jpg/330px-VulcanizationMold1941.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/VulcanizationMold1941.jpg/330px-VulcanizationMold1941.jpg",
     "caption": "Process of hardening rubber",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Vulcanization",
     "license": "CC BY-SA / Public Domain"
   },
   "electron-microscope": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/TITAN.jpg/330px-TITAN.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/TITAN.jpg/330px-TITAN.jpg",
     "caption": "Type of microscope with electrons as a source of illumination",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Electron_microscope",
     "license": "CC BY-SA / Public Domain"
   },
   "air-conditioning": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/MITSUBISHI_ELECTRIC_WINDOW_TYPE_AIR_CONDITIONER_OUTDOOR_UNIT.jpg/330px-MITSUBISHI_ELECTRIC_WINDOW_TYPE_AIR_CONDITIONER_OUTDOOR_UNIT.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/MITSUBISHI_ELECTRIC_WINDOW_TYPE_AIR_CONDITIONER_OUTDOOR_UNIT.jpg/330px-MITSUBISHI_ELECTRIC_WINDOW_TYPE_AIR_CONDITIONER_OUTDOOR_UNIT.jpg",
     "caption": "Cooling of air in an enclosed space",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Air_conditioning",
     "license": "CC BY-SA / Public Domain"
   },
   "electric-streetcar": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Muzeum_MHD%2C_tramvaje_T3_8084_a_6149%2C_zep%C5%99edu.jpg/330px-Muzeum_MHD%2C_tramvaje_T3_8084_a_6149%2C_zep%C5%99edu.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Muzeum_MHD%2C_tramvaje_T3_8084_a_6149%2C_zep%C5%99edu.jpg/330px-Muzeum_MHD%2C_tramvaje_T3_8084_a_6149%2C_zep%C5%99edu.jpg",
     "caption": "Street-running rail transit",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Tram",
     "license": "CC BY-SA / Public Domain"
   },
   "glassmaking": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Fassade_Wilhelmstrasse_65%2C_Berlin-Mitte%2C_160417%2C_ako.jpg/330px-Fassade_Wilhelmstrasse_65%2C_Berlin-Mitte%2C_160417%2C_ako.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Fassade_Wilhelmstrasse_65%2C_Berlin-Mitte%2C_160417%2C_ako.jpg/330px-Fassade_Wilhelmstrasse_65%2C_Berlin-Mitte%2C_160417%2C_ako.jpg",
     "caption": "Transparent non-crystalline solid material",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Glass",
     "license": "CC BY-SA / Public Domain"
   },
   "currency-coins": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kiloware.JPG/330px-Kiloware.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kiloware.JPG/330px-Kiloware.JPG",
     "caption": "Small, flat and usually round piece of material used as money",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Coin",
     "license": "CC BY-SA / Public Domain"
   },
   "gunpowder": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Black_Powder-1.JPG/330px-Black_Powder-1.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Black_Powder-1.JPG/330px-Black_Powder-1.JPG",
     "caption": "Type of firearm propellant",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Gunpowder",
     "license": "CC BY-SA / Public Domain"
   },
   "periodic-table": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Colour_18-col_PT_with_labels.svg/330px-Colour_18-col_PT_with_labels.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Colour_18-col_PT_with_labels.svg/330px-Colour_18-col_PT_with_labels.svg.png",
     "caption": "Tabular arrangement of the chemical elements",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Periodic_table",
     "license": "CC BY-SA / Public Domain"
   },
   "laser": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Guiding_the_Milky_Way_%28potw2222a%29.jpg/330px-Guiding_the_Milky_Way_%28potw2222a%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Guiding_the_Milky_Way_%28potw2222a%29.jpg/330px-Guiding_the_Milky_Way_%28potw2222a%29.jpg",
     "caption": "Device that emits light via optical amplification",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Laser",
     "license": "CC BY-SA / Public Domain"
   },
   "mechanical-refrigeration": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/330px-Open_refrigerator_with_food_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Open_refrigerator_with_food_at_night.jpg/330px-Open_refrigerator_with_food_at_night.jpg",
     "caption": "Appliance for cold food storage",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Refrigerator",
     "license": "CC BY-SA / Public Domain"
   },
   "mri-scanner": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Structural_MRI_animation.ogv/250px--Structural_MRI_animation.ogv.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Structural_MRI_animation.ogv/250px--Structural_MRI_animation.ogv.jpg",
     "caption": "Medical imaging technique",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Magnetic_resonance_imaging",
     "license": "CC BY-SA / Public Domain"
   },
   "pcr-dna-amplification": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/XBio_illustration_%E2%80%93_Polymerase_Chain_Reaction.png/330px-XBio_illustration_%E2%80%93_Polymerase_Chain_Reaction.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/XBio_illustration_%E2%80%93_Polymerase_Chain_Reaction.png/330px-XBio_illustration_%E2%80%93_Polymerase_Chain_Reaction.png",
     "caption": "Laboratory technique to multiply a DNA sample for study",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Polymerase_chain_reaction",
     "license": "CC BY-SA / Public Domain"
   },
   "blockchain-cryptocurrency": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/330px-Bitcoin.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/330px-Bitcoin.svg.png",
     "caption": "Decentralized digital cryptocurrency",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Bitcoin",
     "license": "CC BY-SA / Public Domain"
   },
   "wind-turbine-electricity": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Windmills_D1-D4_%28Thornton_Bank%29.jpg/330px-Windmills_D1-D4_%28Thornton_Bank%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Windmills_D1-D4_%28Thornton_Bank%29.jpg/330px-Windmills_D1-D4_%28Thornton_Bank%29.jpg",
     "caption": "Device to generate electricity from wind",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Wind_turbine",
     "license": "CC BY-SA / Public Domain"
   },
   "sewage-sanitation-systems": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Bazellgette_Sewer_Network_EN.svg/330px-Bazellgette_Sewer_Network_EN.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Bazellgette_Sewer_Network_EN.svg/330px-Bazellgette_Sewer_Network_EN.svg.png",
     "caption": "Infrastructure that conveys sewage or surface runoff using sewers",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Sewerage",
     "license": "CC BY-SA / Public Domain"
   },
   "telescope-space-hubble": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Hubble_2009_close-up_2.jpg/330px-Hubble_2009_close-up_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hubble_2009_close-up_2.jpg/330px-Hubble_2009_close-up_2.jpg",
     "caption": "NASA/ESA space telescope launched in 1990",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope",
     "license": "CC BY-SA / Public Domain"
   },
   "oral-contraceptive-pill": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Pilule_contraceptive.jpg/330px-Pilule_contraceptive.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Pilule_contraceptive.jpg/330px-Pilule_contraceptive.jpg",
     "caption": "Birth control method taken orally",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Combined_oral_contraceptive_pill",
     "license": "CC BY-SA / Public Domain"
   },
   "photography-camera": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg/330px-LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg/330px-LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg",
     "caption": "Optical device for recording images",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Camera",
     "license": "CC BY-SA / Public Domain"
   },
   "airplane-jet-engine": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/F100_F-15_engine.JPG/330px-F100_F-15_engine.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/F100_F-15_engine.JPG/330px-F100_F-15_engine.JPG",
     "caption": "Aircraft engine that produces thrust by emitting a jet of gas",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Jet_engine",
     "license": "CC BY-SA / Public Domain"
   },
   "roman-concrete": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg",
     "caption": "Building material used in ancient Rome",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Roman_concrete",
     "license": "CC BY-SA / Public Domain"
   },
   "bessemer-steel": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg",
     "caption": "Steel production method",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Bessemer_process",
     "license": "CC BY-SA / Public Domain"
   },
   "elevator-safety": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG/330px-Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG/330px-Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG",
     "caption": "Vertical transport machine",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Elevator",
     "license": "CC BY-SA / Public Domain"
   },
   "synthetic-plastic-bakelite": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Bakelit_Struktur.svg/330px-Bakelit_Struktur.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bakelit_Struktur.svg/330px-Bakelit_Struktur.svg.png",
     "caption": "First synthetic plastic",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Bakelite",
     "license": "CC BY-SA / Public Domain"
   },
   "transatlantic-telegraph": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg/330px-Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg/330px-Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg",
     "caption": "Former undersea telegraph cable",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Transatlantic_telegraph_cable",
     "license": "CC BY-SA / Public Domain"
   },
   "graphical-user-interface": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Example_of_a_GUI.png/330px-Example_of_a_GUI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Example_of_a_GUI.png/330px-Example_of_a_GUI.png",
     "caption": "A graphical user interface, or GUI, is a form of user interface that allows users to interact with electronic devices through graphical icon",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Graphical_user_interface",
     "license": "CC BY-SA / Public Domain"
   },
   "crop-rotation": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Plodozmian.jpg/330px-Plodozmian.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Plodozmian.jpg/330px-Plodozmian.jpg",
     "caption": "Agricultural practice of changing crops",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Crop_rotation",
     "license": "CC BY-SA / Public Domain"
   },
   "haber-bosch-process": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fritz_Haber.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fritz_Haber.png",
     "caption": "Industrial process for ammonia production",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Haber_process",
     "license": "CC BY-SA / Public Domain"
   },
   "pasteurization": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg/330px-Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg/330px-Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg",
     "caption": "Process of preserving foods with heat",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Pasteurization",
     "license": "CC BY-SA / Public Domain"
   },
   "double-entry-bookkeeping": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/330px-Pacioli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/330px-Pacioli.jpg",
     "caption": "15th c. Franciscan Friar, mathematician and publisher of accounting treatise",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Luca_Pacioli",
     "license": "CC BY-SA / Public Domain"
   },
   "joint-stock-company": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Society.svg/330px-Society.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Society.svg/330px-Society.svg.png",
     "caption": "Business entity owned by shareholders",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Joint-stock_company",
     "license": "CC BY-SA / Public Domain"
   },
   "mass-production-assembly": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/A321_final_assembly_%289351765668%29.jpg/330px-A321_final_assembly_%289351765668%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/A321_final_assembly_%289351765668%29.jpg/330px-A321_final_assembly_%289351765668%29.jpg",
     "caption": "Manufacturing process",
     "attribution": "Wikimedia Commons / Wikipedia",
     "sourceUrl": "https://en.wikipedia.org/wiki/Assembly_line",

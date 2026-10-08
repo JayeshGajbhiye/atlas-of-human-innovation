@@ -58,7 +58,7 @@ export const batch8Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg/330px-Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg/330px-Landing_of_the_Atlantic_Cable_of_1866%2C_Heart%27s_Content%2C_Newfoundland.jpg',
       caption: 'Former undersea telegraph cable',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -123,7 +123,7 @@ export const batch8Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Example_of_a_GUI.png/330px-Example_of_a_GUI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Example_of_a_GUI.png/330px-Example_of_a_GUI.png',
       caption: 'A graphical user interface, or GUI, is a form of user interface that allows users to interact with electronic devices through graphical icon',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'

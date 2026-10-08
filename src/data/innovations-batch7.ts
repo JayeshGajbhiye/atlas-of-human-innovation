@@ -48,7 +48,7 @@ export const batch7Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Rome-Pantheon-Interieur1.jpg/330px-Rome-Pantheon-Interieur1.jpg',
       caption: 'Building material used in ancient Rome',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -108,7 +108,7 @@ export const batch7Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bessemer_converter.jpg/330px-Bessemer_converter.jpg',
       caption: 'Steel production method',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -163,7 +163,7 @@ export const batch7Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG/330px-Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG/330px-Spalding_Building%2C_Portland%2C_Oregon_%282012%29_-_15.JPG',
       caption: 'Vertical transport machine',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -218,7 +218,7 @@ export const batch7Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Bakelit_Struktur.svg/330px-Bakelit_Struktur.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bakelit_Struktur.svg/330px-Bakelit_Struktur.svg.png',
       caption: 'First synthetic plastic',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'

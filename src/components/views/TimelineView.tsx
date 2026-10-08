@@ -141,6 +141,7 @@ export const TimelineView: React.FC = () => {
                               src={itemImg.url}
                               alt={item.name}
                               loading="lazy"
+                              referrerPolicy="no-referrer"
                               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                             />
                           </div>

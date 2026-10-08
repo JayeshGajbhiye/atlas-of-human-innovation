@@ -48,7 +48,7 @@ export const batch9Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Plodozmian.jpg/330px-Plodozmian.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Plodozmian.jpg/330px-Plodozmian.jpg',
       caption: 'Agricultural practice of changing crops',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -108,7 +108,7 @@ export const batch9Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Fritz_Haber.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Fritz_Haber.png',
       caption: 'Industrial process for ammonia production',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'
@@ -163,7 +163,7 @@ export const batch9Innovations: Innovation[] = [
       }
     ],
     media: {
-      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg/330px-Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg/330px-Give_The_Bottle-Fed_Baby_a_Chance_For_It%27s_Life_poster.jpg',
       caption: 'Process of preserving foods with heat',
       attribution: 'Wikimedia Commons / Wikipedia',
       license: 'CC BY-SA / Public Domain'

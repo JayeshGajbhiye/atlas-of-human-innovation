@@ -148,9 +148,25 @@ export const CANONICAL_WIKI_MAPPING: Record<string, { title: string; fallbackTit
 
 import resolvedImagesData from '../data/resolvedImages.json';
 
-// Curated, verified Wikimedia Commons fallback images for instant display & 100% offline resilience
-export const VERIFIED_COMMONS_FALLBACKS: Record<string, InnovationImage> = resolvedImagesData as Record<string, InnovationImage>;
+export function cleanWikimediaUrl(url: string): string {
+  if (!url) return '';
+  let clean = url.replace('thumb.wikimedia.org', 'upload.wikimedia.org');
+  const qIdx = clean.indexOf('?');
+  if (qIdx !== -1) {
+    clean = clean.substring(0, qIdx);
+  }
+  return clean;
+}
 
+// Curated, verified Wikimedia Commons fallback images for instant display & 100% offline resilience
+const sanitizedFallbacks: Record<string, InnovationImage> = {};
+for (const [id, item] of Object.entries(resolvedImagesData as Record<string, InnovationImage>)) {
+  sanitizedFallbacks[id] = {
+    ...item,
+    url: cleanWikimediaUrl(item.url)
+  };
+}
+export const VERIFIED_COMMONS_FALLBACKS: Record<string, InnovationImage> = sanitizedFallbacks;
 
 // In-memory cache for resolved images
 const imageMemoryCache = new Map<string, InnovationImage | null>();
@@ -158,7 +174,7 @@ const imageMemoryCache = new Map<string, InnovationImage | null>();
 // Request deduplication map
 const pendingRequests = new Map<string, Promise<InnovationImage | null>>();
 
-const STORAGE_PREFIX = 'atlas_img_cache_v3_';
+const STORAGE_PREFIX = 'atlas_img_cache_v4_';
 
 /**
  * Normalizes innovation names and terminology internally for external Wikipedia/Wikimedia lookups.
@@ -241,7 +257,7 @@ export async function resolveInnovationImage(innovation: Innovation): Promise<In
     // Step B: Existing innovation media if valid
     if (innovation.media && innovation.media.url && innovation.media.url.startsWith('http')) {
       const existing: InnovationImage = {
-        url: innovation.media.url,
+        url: cleanWikimediaUrl(innovation.media.url),
         caption: innovation.media.caption || innovation.name,
         attribution: innovation.media.attribution || 'Wikimedia Commons',
         sourceUrl: 'https://commons.wikimedia.org',
@@ -294,7 +310,7 @@ export async function resolveInnovationImage(innovation: Innovation): Promise<In
 
         if (thumbUrl && typeof thumbUrl === 'string') {
           const resolved: InnovationImage = {
-            url: thumbUrl,
+            url: cleanWikimediaUrl(thumbUrl),
             caption: data.description || data.extract?.slice(0, 140) || innovation.overview.slice(0, 140),
             attribution: 'Wikimedia Commons / Wikipedia',
             sourceUrl: data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(title)}`,

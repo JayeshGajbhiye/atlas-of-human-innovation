@@ -35,9 +35,9 @@ export const LeftNavigation: React.FC = () => {
   } = useAtlas();
 
   const exploreNav: NavItem[] = [
-    { id: 'graph', label: 'Knowledge Graph', icon: Network, badge: 'Primary' },
+    { id: 'graph', label: 'Knowledge Graph', icon: Network, badge: 'Relational' },
+    { id: 'innovation-timeline', label: 'Innovation Graph', icon: LineChart, badge: 'Evolutionary' },
     { id: 'timeline', label: 'Timeline River', icon: Clock },
-    { id: 'innovation-timeline', label: 'Innovation Graph', icon: LineChart, badge: 'New' },
     { id: 'map', label: 'World Map', icon: Globe2, badge: 'OSM' },
     { id: '3d', label: '3D Universe', icon: Boxes, badge: 'WebGL' },
     { id: 'paths', label: 'Innovation Paths', icon: GitFork },

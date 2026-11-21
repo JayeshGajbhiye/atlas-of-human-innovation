@@ -16,8 +16,12 @@ import {
   ArrowLeft,
   Sparkles, 
   X, 
-  ExternalLink, 
-  GitFork 
+  GitFork,
+  Compass,
+  ChevronLeft,
+  ChevronRight,
+  BookOpen,
+  Route
 } from 'lucide-react';
 
 interface TimelineNode extends Innovation {
@@ -33,6 +37,111 @@ interface TimelineLink {
   target: TimelineNode;
   relationship: Relationship;
 }
+
+// Curated Historical Lineage Storylines ("Paths of Human Ingenuity")
+export interface InnovationStory {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: string;
+  accentColor: string;
+  milestones: string[];
+}
+
+export const CURATED_STORIES: InnovationStory[] = [
+  {
+    id: 'computing-ai',
+    title: 'The Rise of Computation & Machine Mind',
+    subtitle: 'From ancient counting beads to generative artificial intelligence',
+    icon: '🧠',
+    accentColor: '#00f0ff',
+    milestones: [
+      'abacus',
+      'mechanical-calculator',
+      'analytical-engine-babbage',
+      'turing-machine-formal-logic',
+      'electronic-computer-eniac',
+      'transistor-semiconductor',
+      'silicon-integrated-circuit',
+      'microprocessor-intel4004',
+      'internet-protocol-tcpip',
+      'world-wide-web',
+      'deep-learning-alexnet',
+      'transformer-attention'
+    ]
+  },
+  {
+    id: 'energy-power',
+    title: 'The Harnessing of Energy & Thermodynamics',
+    subtitle: 'From the mastery of fire to electrical grids and atomic energy',
+    icon: '⚡',
+    accentColor: '#f59e0b',
+    milestones: [
+      'controlled-fire',
+      'metallurgy-copper',
+      'steam-engine',
+      'thermodynamics',
+      'electrical-generator',
+      'internal-combustion-engine',
+      'nuclear-fission',
+      'solar-photovoltaic-cell',
+      'lithium-ion-battery'
+    ]
+  },
+  {
+    id: 'communication-knowledge',
+    title: 'The Evolution of Communication & Language',
+    subtitle: 'From clay cuneiform tablets to global optical fiber networks',
+    icon: '📡',
+    accentColor: '#38bdf8',
+    milestones: [
+      'writing-cuneiform',
+      'papyrus-paper',
+      'printing-press',
+      'electric-telegraph',
+      'transatlantic-telegraph',
+      'telephone',
+      'radio-telecommunication',
+      'optical-fiber-telecom',
+      'internet-protocol-tcpip',
+      'world-wide-web',
+      'smartphones-mobile-computing'
+    ]
+  },
+  {
+    id: 'transportation-space',
+    title: 'Engines of Motion & Reaching the Stars',
+    subtitle: 'From the first wooden wheel to lunar exploration and GPS navigation',
+    icon: '🚀',
+    accentColor: '#a855f7',
+    milestones: [
+      'the-wheel',
+      'navigation-maritime',
+      'steam-locomotive',
+      'internal-combustion-engine',
+      'aviation-powered-flight',
+      'jet-engine',
+      'rocketry-spaceflight',
+      'satellites-gps'
+    ]
+  },
+  {
+    id: 'biology-medicine',
+    title: 'Unlocking Life, Genetics & Medicine',
+    subtitle: 'From empirical naturalism to cellular germ theory and gene editing',
+    icon: '🧬',
+    accentColor: '#10b981',
+    milestones: [
+      'scientific-method',
+      'optics-microscope-telescope',
+      'germ-theory',
+      'antibiotics-penicillin',
+      'dna-double-helix',
+      'crispr-gene-editing',
+      'mrna-vaccine-technology'
+    ]
+  }
+];
 
 // Configurable Era Widths along the chronological horizon (X axis)
 const ERA_WIDTHS: Record<EraId, number> = {
@@ -99,6 +208,7 @@ export const InnovationTimelineView: React.FC = () => {
     selectedInnovationId,
     selectInnovation,
     setIsInspectorOpen,
+    setViewMode
   } = useAtlas();
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -114,12 +224,28 @@ export const InnovationTimelineView: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [highlightOnlyLineage, setHighlightOnlyLineage] = useState(false);
 
+  // Active Guided Story Tour State
+  const [activeStory, setActiveStory] = useState<InnovationStory | null>(null);
+  const [storyStepIndex, setStoryStepIndex] = useState<number>(0);
+  const [isStoryMenuOpen, setIsStoryMenuOpen] = useState(false);
+
+  // Minimap viewport box coordinates
+  const [minimapViewport, setMinimapViewport] = useState<{ leftRatio: number; widthRatio: number }>({
+    leftRatio: 0,
+    widthRatio: 1
+  });
+
   // Nodes & Links storage
   const nodesRef = useRef<TimelineNode[]>([]);
   const linksRef = useRef<TimelineLink[]>([]);
   const hoveredNodeRef = useRef<TimelineNode | null>(null);
   const selectedIdRef = useRef<string | null>(selectedInnovationId);
   const neighborhoodRef = useRef<ReturnType<typeof getNodeNeighborhood> | null>(null);
+  const activeStoryMilestonesRef = useRef<Set<string>>(new Set());
+
+  // Animation phase for energetic signal pulses along active curves
+  const animPhaseRef = useRef<number>(0);
+  const animFrameIdRef = useRef<number | null>(null);
 
   // Lineage neighborhood calculation
   const neighborhood = useMemo(() => {
@@ -134,6 +260,14 @@ export const InnovationTimelineView: React.FC = () => {
   useEffect(() => {
     hoveredNodeRef.current = hoveredNode;
   }, [hoveredNode]);
+
+  useEffect(() => {
+    if (activeStory) {
+      activeStoryMilestonesRef.current = new Set(activeStory.milestones);
+    } else {
+      activeStoryMilestonesRef.current.clear();
+    }
+  }, [activeStory]);
 
   // Compute Era X-offsets along the horizontal timeline
   const eraLayoutMap = useMemo(() => {
@@ -158,7 +292,6 @@ export const InnovationTimelineView: React.FC = () => {
   const layoutNodes = useCallback(() => {
     const { map: eraMap } = eraLayoutMap;
 
-    // Filter innovations based on active filters
     let activeInnovations = filteredInnovations;
     if (activeEraFilter !== 'ALL') {
       activeInnovations = activeInnovations.filter(i => i.era === activeEraFilter);
@@ -189,7 +322,6 @@ export const InnovationTimelineView: React.FC = () => {
       let baseY = TIMELINE_TOP_PADDING + laneIndex * LANE_HEIGHT + LANE_HEIGHT / 2;
 
       if (layoutMode === 'lineage-stream') {
-        // Stream mode: distributed across height based on hash / stagger
         const streamTracks = 7;
         const trackIdx = Math.abs((inv.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)) % streamTracks);
         baseY = TIMELINE_TOP_PADDING + 40 + trackIdx * 90;
@@ -203,7 +335,6 @@ export const InnovationTimelineView: React.FC = () => {
       const closeNeighbors = prevXList.filter(prevX => Math.abs(prevX - calcX) < 45);
       if (closeNeighbors.length > 0) {
         yOffset = (closeNeighbors.length % 2 === 1 ? -1 : 1) * (20 + (closeNeighbors.length * 10));
-        // Clamp offset to keep inside lane
         yOffset = Math.max(-40, Math.min(40, yOffset));
       }
       prevXList.push(calcX);
@@ -258,6 +389,15 @@ export const InnovationTimelineView: React.FC = () => {
     const selectedId = selectedIdRef.current;
     const currentNeighborhood = neighborhoodRef.current;
     const currentHovered = hoveredNodeRef.current;
+    const storyMilestones = activeStoryMilestonesRef.current;
+    const animPhase = animPhaseRef.current;
+
+    // Update minimap viewport indicator
+    const visibleStartX = -transform.x / transform.k;
+    const visibleWidthX = width / transform.k;
+    const leftRatio = Math.max(0, Math.min(1, visibleStartX / totalWidth));
+    const widthRatio = Math.max(0.04, Math.min(1, visibleWidthX / totalWidth));
+    setMinimapViewport({ leftRatio, widthRatio });
 
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -292,7 +432,7 @@ export const InnovationTimelineView: React.FC = () => {
       ctx.lineTo(eraLayout.x, canvasBottom);
       ctx.stroke();
 
-      // Top Era Banner in Canvas (Clamped to 11px - 14px font, NEVER scaling up to 100px!)
+      // Top Era Banner in Canvas (Clamped to 10px - 13px font)
       ctx.save();
       const eraFontSize = Math.max(10, Math.min(13, 11 / Math.sqrt(transform.k)));
       ctx.font = `600 ${eraFontSize}px "Inter", sans-serif`;
@@ -350,22 +490,37 @@ export const InnovationTimelineView: React.FC = () => {
       let isHighlighted = false;
       let isPredecessorFlow = false;
       let isDescendantFlow = false;
+      let isStoryFlow = false;
       let isDimmed = false;
 
+      // Active Storyline highlighting
+      if (storyMilestones.size > 0) {
+        if (storyMilestones.has(source.id) && storyMilestones.has(target.id)) {
+          isHighlighted = true;
+          isStoryFlow = true;
+        } else {
+          isDimmed = true;
+        }
+      }
+
+      // Selection-based lineage highlighting
       if (selectedId && currentNeighborhood) {
         if (source.id === selectedId) {
           isHighlighted = true;
           isDescendantFlow = true;
+          isDimmed = false;
         } else if (target.id === selectedId) {
           isHighlighted = true;
           isPredecessorFlow = true;
+          isDimmed = false;
         } else if (
           currentNeighborhood.directPredecessors.includes(source.id) &&
           currentNeighborhood.directPredecessors.includes(target.id)
         ) {
           isHighlighted = true;
           isPredecessorFlow = true;
-        } else {
+          isDimmed = false;
+        } else if (!isStoryFlow) {
           isDimmed = true;
         }
       }
@@ -390,6 +545,8 @@ export const InnovationTimelineView: React.FC = () => {
           ctx.strokeStyle = '#10b981'; // Ancestral precursor glow (emerald)
         } else if (isDescendantFlow) {
           ctx.strokeStyle = '#00f0ff'; // Downstream successor glow (cyan)
+        } else if (isStoryFlow) {
+          ctx.strokeStyle = activeStory?.accentColor || '#38bdf8';
         } else {
           ctx.strokeStyle = '#38bdf8';
         }
@@ -406,6 +563,28 @@ export const InnovationTimelineView: React.FC = () => {
       }
 
       ctx.stroke();
+
+      // Render traveling energy particle pulse along active connection
+      if (isHighlighted) {
+        const t = (animPhase % 100) / 100;
+        // Cubic bezier point calculation
+        const u = 1 - t;
+        const tt = t * t;
+        const uu = u * u;
+        const uuu = uu * u;
+        const ttt = tt * t;
+
+        const pulseX = uuu * source.x + 3 * uu * t * cp1X + 3 * u * tt * cp2X + ttt * target.x;
+        const pulseY = uuu * source.y + 3 * uu * t * cp1Y + 3 * u * tt * cp2Y + ttt * target.y;
+
+        ctx.beginPath();
+        ctx.arc(pulseX, pulseY, Math.max(2.5, 4.5 / Math.sqrt(transform.k)), 0, Math.PI * 2);
+        ctx.fillStyle = isPredecessorFlow ? '#6ee7b7' : '#a5f3fc';
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
 
       // Render directional arrowhead at target end
       if (isHighlighted || transform.k > 1.1) {
@@ -430,20 +609,27 @@ export const InnovationTimelineView: React.FC = () => {
     nodes.forEach(node => {
       const isSelected = selectedId !== null && node.id === selectedId;
       const isHovered = currentHovered?.id === node.id;
+      const isStoryMilestone = storyMilestones.has(node.id);
       const domain = DOMAINS[node.domain] || DOMAINS.FOUNDATIONAL;
 
       let isPredecessor = false;
       let isDescendant = false;
       let isDimmed = false;
 
+      if (storyMilestones.size > 0 && !isStoryMilestone) {
+        isDimmed = true;
+      }
+
       if (selectedId && currentNeighborhood) {
         if (isSelected) {
-          // Focus node
+          isDimmed = false;
         } else if (currentNeighborhood.directPredecessors.includes(node.id)) {
           isPredecessor = true;
+          isDimmed = false;
         } else if (currentNeighborhood.directDescendants.includes(node.id)) {
           isDescendant = true;
-        } else {
+          isDimmed = false;
+        } else if (!isStoryMilestone) {
           isDimmed = true;
         }
       }
@@ -453,16 +639,20 @@ export const InnovationTimelineView: React.FC = () => {
       ctx.save();
       ctx.globalAlpha = isDimmed ? 0.18 : 1.0;
 
-      // Glow halo around active or hovered node
-      if (isSelected || isHovered) {
+      // Glow halo around active, hovered or story milestone node
+      if (isSelected || isHovered || isStoryMilestone) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius + 9, 0, Math.PI * 2);
-        ctx.fillStyle = isSelected ? 'rgba(0, 240, 255, 0.35)' : 'rgba(255, 255, 255, 0.18)';
+        ctx.fillStyle = isSelected 
+          ? 'rgba(0, 240, 255, 0.38)' 
+          : (isStoryMilestone ? 'rgba(56, 189, 248, 0.22)' : 'rgba(255, 255, 255, 0.18)');
         ctx.fill();
 
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius + 5, 0, Math.PI * 2);
-        ctx.fillStyle = isSelected ? 'rgba(0, 240, 255, 0.6)' : 'rgba(255, 255, 255, 0.3)';
+        ctx.fillStyle = isSelected 
+          ? 'rgba(0, 240, 255, 0.65)' 
+          : (isStoryMilestone ? 'rgba(56, 189, 248, 0.38)' : 'rgba(255, 255, 255, 0.3)');
         ctx.fill();
       }
 
@@ -499,15 +689,18 @@ export const InnovationTimelineView: React.FC = () => {
       const dateFontSize = Math.max(8, Math.min(10.5, 9 / Math.sqrt(transform.k)));
       ctx.font = `500 ${dateFontSize}px "JetBrains Mono", monospace`;
       ctx.textAlign = 'center';
-      ctx.fillStyle = isSelected ? '#38bdf8' : (isPredecessor ? '#6ee7b7' : (isDescendant ? '#67e8f9' : 'rgba(255, 255, 255, 0.6)'));
+      ctx.fillStyle = isSelected 
+        ? '#38bdf8' 
+        : (isPredecessor ? '#6ee7b7' : (isDescendant ? '#67e8f9' : 'rgba(255, 255, 255, 0.6)'));
       ctx.fillText(node.date, node.x, node.y - node.radius - 5);
 
-      // Innovation Name Label below node (Intelligently clamped, NEVER messy)
+      // Innovation Name Label below node
       const shouldShowLabel = 
         isSelected || 
         isHovered || 
         isPredecessor || 
         isDescendant || 
+        isStoryMilestone ||
         transform.k > 0.75 || 
         node.radius >= 11;
 
@@ -531,8 +724,10 @@ export const InnovationTimelineView: React.FC = () => {
           labelFontSize + 5
         );
 
-        if (isSelected || isPredecessor || isDescendant) {
-          ctx.strokeStyle = isSelected ? 'rgba(0, 240, 255, 0.7)' : (isPredecessor ? 'rgba(16, 185, 129, 0.7)' : 'rgba(0, 240, 255, 0.5)');
+        if (isSelected || isPredecessor || isDescendant || isStoryMilestone) {
+          ctx.strokeStyle = isSelected 
+            ? 'rgba(0, 240, 255, 0.7)' 
+            : (isPredecessor ? 'rgba(16, 185, 129, 0.7)' : (isDescendant ? 'rgba(0, 240, 255, 0.5)' : 'rgba(56, 189, 248, 0.5)'));
           ctx.lineWidth = 1 / transform.k;
           ctx.strokeRect(
             node.x - textMetrics.width / 2 - padding,
@@ -542,7 +737,9 @@ export const InnovationTimelineView: React.FC = () => {
           );
         }
 
-        ctx.fillStyle = isSelected ? '#38bdf8' : (isPredecessor ? '#6ee7b7' : (isDescendant ? '#67e8f9' : '#f1f5f9'));
+        ctx.fillStyle = isSelected 
+          ? '#38bdf8' 
+          : (isPredecessor ? '#6ee7b7' : (isDescendant ? '#67e8f9' : (isStoryMilestone ? '#a5f3fc' : '#f1f5f9')));
         ctx.fillText(text, node.x, labelY);
       }
 
@@ -551,7 +748,7 @@ export const InnovationTimelineView: React.FC = () => {
 
     ctx.restore();
     ctx.restore();
-  }, [eraLayoutMap, layoutMode, highlightOnlyLineage]);
+  }, [eraLayoutMap, layoutMode, highlightOnlyLineage, activeStory]);
 
   // Exact Hit Testing for Node Interaction
   const findNodeAt = useCallback((screenX: number, screenY: number): TimelineNode | null => {
@@ -583,6 +780,27 @@ export const InnovationTimelineView: React.FC = () => {
     layoutNodes();
     render();
   }, [layoutNodes, render]);
+
+  // Animation frame loop for traveling pulses when selected or in story mode
+  useEffect(() => {
+    let active = true;
+
+    const loop = () => {
+      if (!active) return;
+      if (selectedInnovationId || activeStory) {
+        animPhaseRef.current = (animPhaseRef.current + 1.2) % 100;
+        render();
+      }
+      animFrameIdRef.current = requestAnimationFrame(loop);
+    };
+
+    animFrameIdRef.current = requestAnimationFrame(loop);
+
+    return () => {
+      active = false;
+      if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
+    };
+  }, [selectedInnovationId, activeStory, render]);
 
   // Synchronize canvas size via ResizeObserver
   useEffect(() => {
@@ -646,16 +864,16 @@ export const InnovationTimelineView: React.FC = () => {
     };
   }, [findNodeAt, render]);
 
-  // Auto-focus on selected innovation
-  useEffect(() => {
-    if (!selectedInnovationId || !canvasRef.current || !zoomBehaviorRef.current) return;
-    const node = nodesRef.current.find(n => n.id === selectedInnovationId);
+  // Focus camera on an innovation
+  const focusOnNode = useCallback((nodeId: string, customScale?: number) => {
+    if (!canvasRef.current || !zoomBehaviorRef.current) return;
+    const node = nodesRef.current.find(n => n.id === nodeId);
     if (!node) return;
 
     const canvas = canvasRef.current;
     const width = canvas.width / (window.devicePixelRatio || 1);
     const height = canvas.height / (window.devicePixelRatio || 1);
-    const targetScale = Math.max(1.0, Math.min(1.8, transformRef.current.k));
+    const targetScale = customScale || Math.max(1.0, Math.min(1.8, transformRef.current.k));
 
     const targetTransform = d3.zoomIdentity
       .translate(width / 2 - node.x * targetScale, height / 2 - node.y * targetScale)
@@ -663,9 +881,16 @@ export const InnovationTimelineView: React.FC = () => {
 
     d3.select(canvas)
       .transition()
-      .duration(500)
+      .duration(550)
       .call(zoomBehaviorRef.current.transform, targetTransform);
-  }, [selectedInnovationId]);
+  }, []);
+
+  // Auto-focus on selected innovation from global state
+  useEffect(() => {
+    if (selectedInnovationId) {
+      focusOnNode(selectedInnovationId);
+    }
+  }, [selectedInnovationId, focusOnNode]);
 
   // Pointer interactions
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -793,6 +1018,67 @@ export const InnovationTimelineView: React.FC = () => {
     }
   }, []);
 
+  // Minimap click / scrub handler
+  const handleMinimapClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!canvasRef.current || !zoomBehaviorRef.current) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+
+    const totalWidth = eraLayoutMap.totalWidth;
+    const canvas = canvasRef.current;
+    const width = canvas.width / (window.devicePixelRatio || 1);
+    const currentScale = transformRef.current.k;
+
+    const targetX = clickRatio * totalWidth;
+    const targetTransform = d3.zoomIdentity
+      .translate(width / 2 - targetX * currentScale, transformRef.current.y)
+      .scale(currentScale);
+
+    d3.select(canvas)
+      .transition()
+      .duration(450)
+      .call(zoomBehaviorRef.current.transform, targetTransform);
+  };
+
+  // Story Navigation Handlers
+  const startStory = (story: InnovationStory) => {
+    setActiveStory(story);
+    setStoryStepIndex(0);
+    setIsStoryMenuOpen(false);
+    const firstId = story.milestones[0];
+    if (firstId) {
+      selectInnovation(firstId);
+      focusOnNode(firstId, 1.3);
+    }
+  };
+
+  const nextStoryStep = () => {
+    if (!activeStory) return;
+    const nextIdx = Math.min(activeStory.milestones.length - 1, storyStepIndex + 1);
+    setStoryStepIndex(nextIdx);
+    const nextId = activeStory.milestones[nextIdx];
+    if (nextId) {
+      selectInnovation(nextId);
+      focusOnNode(nextId, 1.3);
+    }
+  };
+
+  const prevStoryStep = () => {
+    if (!activeStory) return;
+    const prevIdx = Math.max(0, storyStepIndex - 1);
+    setStoryStepIndex(prevIdx);
+    const prevId = activeStory.milestones[prevIdx];
+    if (prevId) {
+      selectInnovation(prevId);
+      focusOnNode(prevId, 1.3);
+    }
+  };
+
+  const exitStory = () => {
+    setActiveStory(null);
+    setStoryStepIndex(0);
+  };
+
   // Selected node object for bottom lineage tray
   const selectedNode = useMemo(() => {
     if (!selectedInnovationId) return null;
@@ -820,6 +1106,45 @@ export const InnovationTimelineView: React.FC = () => {
               Chronological Lineage & Dependency Flow
             </p>
           </div>
+        </div>
+
+        {/* Guided Historical Storylines Dropdown */}
+        <div className="relative shrink-0">
+          <button
+            onClick={() => setIsStoryMenuOpen(!isStoryMenuOpen)}
+            className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs font-mono transition-all border ${
+              activeStory 
+                ? 'bg-amber-950/60 border-amber-500/50 text-amber-300 shadow-sm' 
+                : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:text-slate-100'
+            }`}
+          >
+            <Compass className="w-3.5 h-3.5 text-amber-400" />
+            <span>{activeStory ? activeStory.title : 'Guided Lineage Stories'}</span>
+          </button>
+
+          {isStoryMenuOpen && (
+            <div className="absolute top-full left-0 mt-1.5 w-80 bg-[#0f121d] border border-white/15 rounded-lg shadow-2xl p-2 z-50 text-xs space-y-1">
+              <div className="px-2 py-1 text-[10px] font-mono uppercase text-slate-400 font-semibold border-b border-white/10">
+                Choose a Curated Technological Journey
+              </div>
+              {CURATED_STORIES.map(story => (
+                <button
+                  key={story.id}
+                  onClick={() => startStory(story)}
+                  className="w-full text-left p-2 rounded hover:bg-white/5 transition-all flex items-start space-x-2"
+                >
+                  <span className="text-base">{story.icon}</span>
+                  <div>
+                    <div className="font-semibold text-slate-100 flex items-center space-x-1.5">
+                      <span>{story.title}</span>
+                      <span className="text-[10px] font-mono text-cyan-400">({story.milestones.length})</span>
+                    </div>
+                    <div className="text-[10px] text-slate-400 line-clamp-1">{story.subtitle}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Epoch Navigation Pills */}
@@ -892,7 +1217,45 @@ export const InnovationTimelineView: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Interactive Graph Canvas */}
+      {/* 2. Interactive Chronological Mini-Map Scrubber Bar */}
+      <div 
+        onClick={handleMinimapClick}
+        className="h-7 bg-[#050609] border-b border-white/10 relative flex items-center cursor-pointer select-none overflow-hidden shrink-0"
+        title="Chronological Mini-Map Scrubber: Click or drag to jump across history"
+      >
+        {/* Era Colored Segments */}
+        <div className="absolute inset-0 flex h-full">
+          {ERAS.map(era => {
+            const widthPct = (ERA_WIDTHS[era.id] / eraLayoutMap.totalWidth) * 100;
+            return (
+              <div 
+                key={era.id} 
+                className="h-full border-r border-white/10 flex items-center justify-center px-1 truncate relative"
+                style={{ width: `${widthPct}%` }}
+              >
+                <div 
+                  className="absolute bottom-0 left-0 right-0 h-1 opacity-60" 
+                  style={{ backgroundColor: era.color }}
+                />
+                <span className="text-[9px] font-mono uppercase text-slate-400 truncate opacity-70">
+                  {era.name.split('&')[0]}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Viewport Scrub Window Box */}
+        <div 
+          className="absolute top-0 bottom-0 border-2 border-cyan-400 bg-cyan-400/15 pointer-events-none rounded transition-all duration-75 shadow-glow-cyan"
+          style={{
+            left: `${minimapViewport.leftRatio * 100}%`,
+            width: `${minimapViewport.widthRatio * 100}%`
+          }}
+        />
+      </div>
+
+      {/* 3. Interactive Graph Canvas */}
       <div className="flex-1 w-full h-full relative overflow-hidden">
         <canvas
           ref={canvasRef}
@@ -901,6 +1264,50 @@ export const InnovationTimelineView: React.FC = () => {
           onPointerUp={handlePointerUp}
           className="w-full h-full cursor-grab active:cursor-grabbing block select-none touch-none"
         />
+
+        {/* Floating Storyline Stepper HUD (When Story Active) */}
+        {activeStory && (
+          <div className="absolute top-4 right-4 z-20 bg-[#0c0e15]/95 backdrop-blur-md border border-amber-500/50 rounded-xl p-3 shadow-2xl flex items-center space-x-3 select-none animate-in fade-in duration-150">
+            <span className="text-xl">{activeStory.icon}</span>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="font-bold text-xs text-amber-300 font-mono">{activeStory.title}</span>
+                <span className="text-[10px] font-mono text-slate-400">
+                  Step {storyStepIndex + 1} of {activeStory.milestones.length}
+                </span>
+              </div>
+              <div className="text-[11px] text-slate-200 font-medium">
+                {filteredInnovations.find(i => i.id === activeStory.milestones[storyStepIndex])?.name || ''}
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-1 pl-2 border-l border-white/10">
+              <button
+                onClick={prevStoryStep}
+                disabled={storyStepIndex === 0}
+                className="p-1 rounded text-slate-300 hover:text-white hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
+                title="Previous Breakthrough"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={nextStoryStep}
+                disabled={storyStepIndex === activeStory.milestones.length - 1}
+                className="p-1 rounded text-slate-300 hover:text-white hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
+                title="Next Breakthrough"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={exitStory}
+                className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-rose-950/40 ml-1"
+                title="Exit Storyline Tour"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Floating View Controls HUD */}
         <div className="absolute top-4 left-4 flex flex-col space-y-1 z-20 bg-[#0c0e15]/85 backdrop-blur-md border border-white/10 rounded-lg p-1 shadow-2xl select-none">
@@ -988,7 +1395,7 @@ export const InnovationTimelineView: React.FC = () => {
           </div>
         )}
 
-        {/* 3. Bottom Lineage Traversal Tray (When Node Selected) */}
+        {/* 4. Bottom Lineage Traversal Tray (When Node Selected) */}
         {selectedNode && (
           <div className="absolute bottom-4 left-4 right-4 z-20 bg-[#0c0e15]/95 backdrop-blur-md border border-cyan-500/40 rounded-xl p-3.5 shadow-2xl flex items-center justify-between gap-4 animate-in slide-in-from-bottom duration-200 select-none">
             {/* Left: Selected Innovation Info */}
@@ -1024,7 +1431,7 @@ export const InnovationTimelineView: React.FC = () => {
                   <ArrowLeft className="w-3 h-3" />
                   <span>Ancestors ({selectedNode.predecessors.length}):</span>
                 </span>
-                {selectedNode.predecessors.slice(0, 3).map(predId => {
+                {selectedNode.predecessors.map(predId => {
                   const pred = filteredInnovations.find(i => i.id === predId);
                   if (!pred) return null;
                   return (
@@ -1047,7 +1454,7 @@ export const InnovationTimelineView: React.FC = () => {
                   <span>Enabled ({selectedNode.successors.length}):</span>
                   <ArrowRight className="w-3 h-3" />
                 </span>
-                {selectedNode.successors.slice(0, 3).map(succId => {
+                {selectedNode.successors.map(succId => {
                   const succ = filteredInnovations.find(i => i.id === succId);
                   if (!succ) return null;
                   return (
@@ -1066,11 +1473,19 @@ export const InnovationTimelineView: React.FC = () => {
             {/* Right: Actions */}
             <div className="flex items-center space-x-2 shrink-0">
               <button
+                onClick={() => setViewMode('paths')}
+                className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono font-medium bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 transition-all"
+                title="Trace Full Evolutionary Path"
+              >
+                <Route className="w-3.5 h-3.5" />
+                <span>Lineage Path</span>
+              </button>
+              <button
                 onClick={() => setIsInspectorOpen(true)}
                 className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition-all shadow-glow-cyan"
               >
-                <span>Full Dossier</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Dossier</span>
               </button>
               <button
                 onClick={() => selectInnovation(null)}

@@ -17,6 +17,7 @@ import {
   Focus,
   RotateCcw,
   Network,
+  CircleDot,
   X
 } from 'lucide-react';
 
@@ -53,17 +54,22 @@ export const KnowledgeGraphView: React.FC = () => {
   const transformRef = useRef<d3.ZoomTransform>(d3.zoomIdentity);
   const zoomBehaviorRef = useRef<d3.ZoomBehavior<HTMLCanvasElement, unknown> | null>(null);
 
-  // Persistent nodes and links storage to ensure position stability across re-renders
+  // Persistent nodes and links storage
   const nodesRef = useRef<SimulationNode[]>([]);
   const linksRef = useRef<SimulationLink[]>([]);
 
-  // Ref-based dynamic render states to eliminate stale closures and re-render flickering
+  // Ref-based dynamic render states
   const selectedIdRef = useRef<string | null>(selectedInnovationId);
   const neighborhoodRef = useRef<ReturnType<typeof getNodeNeighborhood> | null>(null);
   const hoveredNodeRef = useRef<SimulationNode | null>(null);
   const showEdgeLabelsRef = useRef<boolean>(true);
   const showLegendRef = useRef<boolean>(true);
   const focusLineageRef = useRef<boolean>(false);
+  const graphModeRef = useRef<'force' | 'radial-ego'>('force');
+
+  // Animation phase for energetic signal pulses along active links
+  const animPhaseRef = useRef<number>(0);
+  const animFrameIdRef = useRef<number | null>(null);
 
   // Interaction tracking
   const pointerStartRef = useRef<{
@@ -83,6 +89,7 @@ export const KnowledgeGraphView: React.FC = () => {
   const lastClickRef = useRef<{ id: string; time: number } | null>(null);
 
   // React Component States
+  const [graphMode, setGraphMode] = useState<'force' | 'radial-ego'>('force');
   const [hoveredNode, setHoveredNode] = useState<SimulationNode | null>(null);
   const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -100,7 +107,7 @@ export const KnowledgeGraphView: React.FC = () => {
     return selectedInnovationId ? getNodeNeighborhood(selectedInnovationId) : null;
   }, [selectedInnovationId]);
 
-  // Synchronize dynamic values to refs for the render loop
+  // Synchronize dynamic values to refs
   useEffect(() => {
     selectedIdRef.current = selectedInnovationId;
     neighborhoodRef.current = neighborhood;
@@ -110,6 +117,11 @@ export const KnowledgeGraphView: React.FC = () => {
     focusLineageRef.current = focusLineageMode;
     render();
   }, [focusLineageMode]);
+
+  useEffect(() => {
+    graphModeRef.current = graphMode;
+    rebuildSimulation();
+  }, [graphMode]);
 
   useEffect(() => {
     hoveredNodeRef.current = hoveredNode;
@@ -153,7 +165,7 @@ export const KnowledgeGraphView: React.FC = () => {
     }
   }, []);
 
-  // Main canvas render routine - clean, robust, zero zoom-out text explosions
+  // Main canvas render routine
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -165,6 +177,7 @@ export const KnowledgeGraphView: React.FC = () => {
     const transform = transformRef.current;
     const currentNodes = nodesRef.current;
     const currentLinks = linksRef.current;
+    const animPhase = animPhaseRef.current;
 
     // Read current state from refs
     const selectedId = selectedIdRef.current;
@@ -176,7 +189,6 @@ export const KnowledgeGraphView: React.FC = () => {
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Apply devicePixelRatio scaling
     const dpr = window.devicePixelRatio || 1;
     ctx.scale(dpr, dpr);
 
@@ -209,6 +221,25 @@ export const KnowledgeGraphView: React.FC = () => {
     ctx.save();
     ctx.translate(transform.x, transform.y);
     ctx.scale(transform.k, transform.k);
+
+    // Ambient Domain Nebulae Glow in Background
+    DOMAIN_LIST.forEach(dom => {
+      const domNodes = currentNodes.filter(n => n.domain === dom.id);
+      if (domNodes.length >= 3) {
+        const avgX = domNodes.reduce((acc, n) => acc + (n.x || 0), 0) / domNodes.length;
+        const avgY = domNodes.reduce((acc, n) => acc + (n.y || 0), 0) / domNodes.length;
+        
+        ctx.save();
+        const radGrad = ctx.createRadialGradient(avgX, avgY, 20, avgX, avgY, 180);
+        radGrad.addColorStop(0, `${dom.color}10`);
+        radGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = radGrad;
+        ctx.beginPath();
+        ctx.arc(avgX, avgY, 180, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    });
 
     // 1. Draw Links (Relational Edges)
     currentLinks.forEach(link => {
@@ -253,6 +284,21 @@ export const KnowledgeGraphView: React.FC = () => {
       }
 
       ctx.stroke();
+
+      // Traveling Energy Pulse Particle on active links
+      if (isHighlighted) {
+        const t = (animPhase % 100) / 100;
+        const pulseX = source.x + (target.x - source.x) * t;
+        const pulseY = source.y + (target.y - source.y) * t;
+
+        ctx.beginPath();
+        ctx.arc(pulseX, pulseY, Math.max(2.5, 4.5 / Math.sqrt(transform.k)), 0, Math.PI * 2);
+        ctx.fillStyle = source.id === selectedId ? '#a5f3fc' : '#6ee7b7';
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
 
       // Render directional arrowheads (from source to target)
       if (isHighlighted || (!selectedId && transform.k > 0.95)) {
@@ -365,9 +411,6 @@ export const KnowledgeGraphView: React.FC = () => {
       ctx.stroke();
 
       // Node Label text — Strictly controlled to prevent zoom-out mess!
-      // When zoomed out (transform.k < 0.65), ONLY show labels for selected, neighbors, or hovered.
-      // When medium zoom (0.65 <= k < 1.1), show high-degree hubs.
-      // When zoomed in (k >= 1.1), show all nodes.
       const shouldShowLabel = 
         isSelected || 
         isHovered || 
@@ -396,7 +439,6 @@ export const KnowledgeGraphView: React.FC = () => {
           fontSize + 5
         );
 
-        // Thin stroke border on active/precursor plates
         if (isSelected || isPredecessor || isDescendant) {
           ctx.strokeStyle = isSelected ? 'rgba(0, 240, 255, 0.6)' : (isPredecessor ? 'rgba(16, 185, 129, 0.6)' : 'rgba(0, 240, 255, 0.4)');
           ctx.lineWidth = 1 / transform.k;
@@ -446,11 +488,14 @@ export const KnowledgeGraphView: React.FC = () => {
     return closestNode;
   }, []);
 
-  // Rebuild and maintain organic force simulation
+  // Rebuild and maintain simulation
   const rebuildSimulation = useCallback(() => {
     const canvas = canvasRef.current;
     const width = (canvas ? canvas.width / (window.devicePixelRatio || 1) : 900) || 900;
     const height = (canvas ? canvas.height / (window.devicePixelRatio || 1) : 600) || 600;
+    const mode = graphModeRef.current;
+    const selectedId = selectedIdRef.current;
+    const currentNeighborhood = neighborhoodRef.current;
 
     const existingMap = new Map<string, SimulationNode>(
       nodesRef.current.map(n => [n.id, n])
@@ -498,6 +543,53 @@ export const KnowledgeGraphView: React.FC = () => {
       };
     });
 
+    // Special Radial Ego Mode Arrangement when node is selected
+    if (mode === 'radial-ego' && selectedId && currentNeighborhood) {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const predIds = currentNeighborhood.directPredecessors;
+      const succIds = currentNeighborhood.directDescendants;
+      const secIds = currentNeighborhood.secondDegree;
+
+      updatedNodes.forEach(node => {
+        if (node.id === selectedId) {
+          node.fx = centerX;
+          node.fy = centerY;
+        } else if (predIds.includes(node.id)) {
+          // Arc on left (antecedents)
+          const idx = predIds.indexOf(node.id);
+          const total = Math.max(1, predIds.length);
+          const angle = Math.PI - 0.75 + (idx / Math.max(1, total - 1)) * 1.5;
+          node.fx = centerX + Math.cos(angle) * 220;
+          node.fy = centerY + Math.sin(angle) * 220;
+        } else if (succIds.includes(node.id)) {
+          // Arc on right (descendants)
+          const idx = succIds.indexOf(node.id);
+          const total = Math.max(1, succIds.length);
+          const angle = -0.75 + (idx / Math.max(1, total - 1)) * 1.5;
+          node.fx = centerX + Math.cos(angle) * 220;
+          node.fy = centerY + Math.sin(angle) * 220;
+        } else if (secIds.includes(node.id)) {
+          // Outer circle
+          const idx = secIds.indexOf(node.id);
+          const total = Math.max(1, secIds.length);
+          const angle = (idx / total) * Math.PI * 2;
+          node.fx = centerX + Math.cos(angle) * 360;
+          node.fy = centerY + Math.sin(angle) * 360;
+        } else {
+          // Drift far away
+          node.fx = null;
+          node.fy = null;
+        }
+      });
+    } else {
+      // Clear fixed positions in force mode
+      updatedNodes.forEach(node => {
+        node.fx = null;
+        node.fy = null;
+      });
+    }
+
     nodesRef.current = updatedNodes;
     const nodeMap = new Map<string, SimulationNode>(updatedNodes.map(n => [n.id, n]));
 
@@ -516,7 +608,6 @@ export const KnowledgeGraphView: React.FC = () => {
       simulationRef.current.stop();
     }
 
-    // Pure organic relational force-directed simulation
     const sim = d3.forceSimulation<SimulationNode>(updatedNodes)
       .force('charge', d3.forceManyBody<SimulationNode>()
         .strength(d => -180 - d.radius * 8)
@@ -577,6 +668,27 @@ export const KnowledgeGraphView: React.FC = () => {
     rebuildSimulation();
   }, [rebuildSimulation]);
 
+  // Animation frame loop for traveling energy pulse on active links
+  useEffect(() => {
+    let active = true;
+
+    const loop = () => {
+      if (!active) return;
+      if (selectedInnovationId) {
+        animPhaseRef.current = (animPhaseRef.current + 1.2) % 100;
+        render();
+      }
+      animFrameIdRef.current = requestAnimationFrame(loop);
+    };
+
+    animFrameIdRef.current = requestAnimationFrame(loop);
+
+    return () => {
+      active = false;
+      if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
+    };
+  }, [selectedInnovationId, render]);
+
   // Set up D3 Zoom
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -617,7 +729,7 @@ export const KnowledgeGraphView: React.FC = () => {
     render();
   }, [selectedInnovationId, neighborhood, showEdgeLabels, showLegend, render]);
 
-  // Auto-focus on selected innovation (e.g. from search)
+  // Auto-focus on selected innovation
   useEffect(() => {
     if (!selectedInnovationId || !canvasRef.current || !zoomBehaviorRef.current) return;
     const node = nodesRef.current.find(n => n.id === selectedInnovationId);
@@ -683,7 +795,6 @@ export const KnowledgeGraphView: React.FC = () => {
     const screenX = e.clientX - rect.left;
     const screenY = e.clientY - rect.top;
 
-    // Handle Active Node Dragging
     if (dragRef.current) {
       const drag = dragRef.current;
       const dx = (e.clientX - drag.startX) / transformRef.current.k;
@@ -708,7 +819,6 @@ export const KnowledgeGraphView: React.FC = () => {
       return;
     }
 
-    // Handle Hover Tooltip
     const node = findNodeAt(screenX, screenY);
     if (node) {
       setHoveredNode(node);
@@ -746,15 +856,12 @@ export const KnowledgeGraphView: React.FC = () => {
       dragRef.current = null;
 
       if (!moved) {
-        // Click detected: check for double click
         const now = Date.now();
         if (lastClickRef.current && lastClickRef.current.id === node.id && (now - lastClickRef.current.time) < 320) {
-          // Double Click: Open full innovation dossier!
           selectInnovation(node.id);
           setIsInspectorOpen(true);
           lastClickRef.current = null;
         } else {
-          // Single Click: Select and highlight lineage
           lastClickRef.current = { id: node.id, time: now };
           selectInnovation(node.id);
         }
@@ -764,7 +871,6 @@ export const KnowledgeGraphView: React.FC = () => {
       return;
     }
 
-    // Single click on empty canvas space clears active selection cleanly
     if (startInfo && !startInfo.node) {
       const dx = e.clientX - startInfo.x;
       const dy = e.clientY - startInfo.y;
@@ -775,7 +881,6 @@ export const KnowledgeGraphView: React.FC = () => {
     }
   };
 
-  // View control actions
   const handleZoomIn = () => {
     if (!canvasRef.current || !zoomBehaviorRef.current) return;
     d3.select(canvasRef.current).transition().duration(250).call(zoomBehaviorRef.current.scaleBy, 1.35);
@@ -856,6 +961,34 @@ export const KnowledgeGraphView: React.FC = () => {
               Relational & Conceptual Network ({filteredInnovations.length} nodes)
             </p>
           </div>
+        </div>
+
+        {/* Layout Switcher: Force Mesh vs Radial Ego */}
+        <div className="flex items-center space-x-1 bg-white/5 p-0.5 rounded border border-white/10 shrink-0">
+          <button
+            onClick={() => setGraphMode('force')}
+            className={`flex items-center space-x-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all ${
+              graphMode === 'force'
+                ? 'bg-cyan-950/60 text-cyan-300 border border-cyan-500/40'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+            title="Force Network: Organic physics simulation"
+          >
+            <Network className="w-3 h-3" />
+            <span>Organic Mesh</span>
+          </button>
+          <button
+            onClick={() => setGraphMode('radial-ego')}
+            className={`flex items-center space-x-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all ${
+              graphMode === 'radial-ego'
+                ? 'bg-cyan-950/60 text-cyan-300 border border-cyan-500/40'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+            title="Radial Ego Orbit: Center selected node with antecedent & descendant orbits"
+          >
+            <CircleDot className="w-3 h-3" />
+            <span>Ego Orbit</span>
+          </button>
         </div>
 
         {/* Domain Filter Pills */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import L from 'leaflet';
 import { useAtlas } from '../../context/AtlasContext';
 import { DOMAINS } from '../../data/domains';
@@ -12,6 +12,40 @@ interface LocationGroup {
   innovations: Innovation[];
 }
 
+export type MapTheme = 'dark' | 'satellite' | 'voyager';
+
+const TILE_LAYERS: Record<MapTheme, { url: string; options: L.TileLayerOptions; label: string; badge: string }> = {
+  dark: {
+    url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    options: {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20,
+    },
+    label: 'Dark Matter',
+    badge: 'CartoDB Dark'
+  },
+  satellite: {
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    options: {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+      maxZoom: 18,
+    },
+    label: 'Satellite',
+    badge: 'Esri Imagery'
+  },
+  voyager: {
+    url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    options: {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20,
+    },
+    label: 'Voyager',
+    badge: 'CartoDB Voyager'
+  }
+};
+
 export const WorldMapView: React.FC = () => {
   const {
     filteredInnovations,
@@ -19,8 +53,11 @@ export const WorldMapView: React.FC = () => {
     selectInnovation,
   } = useAtlas();
 
+  const [mapTheme, setMapTheme] = useState<MapTheme>('dark');
+
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
+  const tileLayerRef = useRef<L.TileLayer | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
 
   // Group innovations by exact geographic coordinates so co-located innovations are never hidden
@@ -59,7 +96,7 @@ export const WorldMapView: React.FC = () => {
     };
   }, [filteredInnovations]);
 
-  // Initialize Leaflet Map once with OpenStreetMap tiles
+  // Initialize Leaflet Map once with high-reliability global CDN dark tiles
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
@@ -67,18 +104,15 @@ export const WorldMapView: React.FC = () => {
       center: [32.0, 25.0],
       zoom: 3,
       minZoom: 2,
-      maxZoom: 16,
+      maxZoom: 18,
       zoomControl: false,
     });
 
     L.control.zoom({ position: 'topleft' }).addTo(map);
 
-    // OpenStreetMap Tile Layer with official attribution
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
-      maxZoom: 19,
-      className: 'osm-tile-layer',
-    }).addTo(map);
+    const initialProvider = TILE_LAYERS.dark;
+    const initialTileLayer = L.tileLayer(initialProvider.url, initialProvider.options).addTo(map);
+    tileLayerRef.current = initialTileLayer;
 
     const markersLayer = L.layerGroup().addTo(map);
     markersLayerRef.current = markersLayer;
@@ -87,8 +121,23 @@ export const WorldMapView: React.FC = () => {
     return () => {
       map.remove();
       mapInstanceRef.current = null;
+      tileLayerRef.current = null;
     };
   }, []);
+
+  // Switch basemap layer dynamically
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    if (tileLayerRef.current) {
+      map.removeLayer(tileLayerRef.current);
+    }
+
+    const provider = TILE_LAYERS[mapTheme];
+    const newLayer = L.tileLayer(provider.url, provider.options).addTo(map);
+    tileLayerRef.current = newLayer;
+  }, [mapTheme]);
 
   // Update Markers when location groups or selected innovation changes
   useEffect(() => {
@@ -246,19 +295,36 @@ export const WorldMapView: React.FC = () => {
       <div ref={mapContainerRef} className="w-full h-full z-0" />
 
       {/* Floating Info & Coverage Status Overlay */}
-      <div className="absolute top-4 right-4 z-10 bg-[#0c0e15]/85 backdrop-blur-md border border-white/10 rounded-lg p-3 shadow-2xl max-w-xs text-xs space-y-2.5">
+      <div className="absolute top-4 right-4 z-10 bg-[#0c0e15]/90 backdrop-blur-md border border-white/10 rounded-xl p-3.5 shadow-2xl max-w-xs text-xs space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-cyan-400 font-mono font-semibold">
             <Globe2 className="w-4 h-4" />
             <span>2D Geographic Origins</span>
           </div>
-          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/60 border border-emerald-500/40 text-emerald-300">
-            OpenStreetMap
+          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950/60 border border-cyan-500/40 text-cyan-300">
+            {TILE_LAYERS[mapTheme].badge}
           </span>
         </div>
 
+        {/* Basemap Layer Switcher */}
+        <div className="flex items-center space-x-1 bg-white/5 p-1 rounded-lg border border-white/10">
+          {(Object.keys(TILE_LAYERS) as MapTheme[]).map(theme => (
+            <button
+              key={theme}
+              onClick={() => setMapTheme(theme)}
+              className={`flex-1 py-1 px-1.5 rounded text-[10px] font-mono font-medium transition-all text-center ${
+                mapTheme === theme 
+                  ? 'bg-cyan-950/70 border border-cyan-500/50 text-cyan-300 shadow-glow-cyan' 
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              {TILE_LAYERS[theme].label}
+            </button>
+          ))}
+        </div>
+
         <p className="text-slate-300 text-[11px] leading-relaxed">
-          Displays documented archaeological sites, civilizational origins, and laboratories. Multi-innovation hubs display breakthrough count badges.
+          Documented archaeological sites, civilizational centers, and laboratories. Multi-innovation hubs display breakthrough count badges.
         </p>
 
         {/* Coverage Statistics */}
@@ -268,7 +334,7 @@ export const WorldMapView: React.FC = () => {
               <MapPin className="w-3 h-3 text-cyan-400" />
               <span>Mapped Breakthroughs:</span>
             </span>
-            <span className="text-slate-100 font-semibold">{totalMappedCount} / 73 Terrestrial</span>
+            <span className="text-slate-100 font-semibold">{totalMappedCount} / {filteredInnovations.length}</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="flex items-center space-x-1.5">
@@ -282,9 +348,9 @@ export const WorldMapView: React.FC = () => {
         {/* Non-terrestrial orbital innovation note (space-station-iss) */}
         {orbitalInnovations.length > 0 && (
           <div className="pt-2 border-t border-white/10">
-            <div className="p-2 rounded bg-white/5 border border-white/5 space-y-1">
+            <div className="p-2.5 rounded-lg bg-white/5 border border-white/5 space-y-1">
               <div className="flex items-center space-x-1.5 text-[10px] font-mono text-amber-400 font-semibold">
-                <Satellite className="w-3 h-3" />
+                <Satellite className="w-3.5 h-3.5" />
                 <span>Non-Terrestrial (Orbital)</span>
               </div>
               <p className="text-[10px] text-slate-300 leading-snug">

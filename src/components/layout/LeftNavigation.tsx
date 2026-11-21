@@ -38,7 +38,7 @@ export const LeftNavigation: React.FC = () => {
     { id: 'graph', label: 'Knowledge Graph', icon: Network, badge: 'Relational' },
     { id: 'innovation-timeline', label: 'Innovation Graph', icon: LineChart, badge: 'Evolutionary' },
     { id: 'timeline', label: 'Timeline River', icon: Clock },
-    { id: 'map', label: 'World Map', icon: Globe2, badge: 'OSM' },
+    { id: 'map', label: 'World Map', icon: Globe2, badge: 'GIS' },
     { id: '3d', label: '3D Universe', icon: Boxes, badge: 'WebGL' },
     { id: 'paths', label: 'Innovation Paths', icon: GitFork },
     { id: 'civilization', label: 'Civilization Matrix', icon: Landmark },
